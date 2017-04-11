@@ -4,14 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-// var jquery = require('jquery');
-// var bootstrap = require('bootstrap');
-// var fontAwesome = require('font-awesome');
-// var handlebars = require('handlebars');
+var jquery = require('jquery');
 
-var mongodb = require('mongodb').MongoClient;
+var mongodb = require('mongodb');
 var monk = require('monk');
-var connectionUrl = monk('mongodb://admin:admin@ds157439.mlab.com:57439/youtube-db');
+var db = monk('mongodb://admin:admin@ds157439.mlab.com:57439/youtube-db');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
