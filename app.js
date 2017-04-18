@@ -4,6 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongodb = require('mongo');
+var monk = require('monk');
+var db = require('mongodb://admin:admin@ds157439.mlab.com:57439/youtube-db');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
