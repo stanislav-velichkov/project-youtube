@@ -4,11 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var jquery = require('jquery');
-
-var mongodb = require('mongodb');
-var monk = require('monk');
-var db = monk('mongodb://admin:admin@ds157439.mlab.com:57439/youtube-db');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -17,7 +12,7 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+app.set('view engine', '');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
