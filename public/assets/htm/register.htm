@@ -1,0 +1,31 @@
+<fieldset class="login-register">
+    <form action="/register" method="post">
+        <table>
+            <thead>
+                <tr>
+                    <th>Register</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="username" placeholder="Username"></td>
+                </tr>
+                <tr>
+                    <td><input type="password" name="password" placeholder="Password"></td>
+                </tr>
+                <tr>
+                    <td><input type="password" name="repeatPassword" placeholder="Repeat Password"></td>
+                </tr>
+                <tfoot>
+                    <tr>
+                        <td><input type="submit" value="Register"></td>
+                    </tr>
+                </tfoot>
+            </tbody>
+        </table>
+    </form>
+
+    <div class='error'>
+        {{message}}
+    </div>
+</fieldset>
