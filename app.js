@@ -4,7 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var html = require('html');
+var html = require('html')
+var hbs = require('hbs');
 var session = require('express-session');
 var mongodb = require('mongo');
 var monk = require('monk');
@@ -13,6 +14,7 @@ var db = monk("mongodb://admin:admin@ds157439.mlab.com:57439/youtube-db");
 // var index = require('./routes/index');
 // var users = require('./routes/users');
 var login = require('./routes/login');
+var register = require('./routes/register');
 
 var app = express();
 app.use(function (req, resp, next) {
@@ -23,7 +25,7 @@ app.use(function (req, resp, next) {
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'html');
+app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -37,6 +39,7 @@ app.use(session({secret: '1234'}));
 // app.use('/', index);
 // app.use('/users', users);
 app.use('/login', login);
+app.use('/register', register);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
