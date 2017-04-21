@@ -6,15 +6,18 @@ router.post('/', function (req, res, next) {
     var password = req.body.password;
     var db = req.db;
     var users = db.get('users');
-    users.find({user: username, password: password})
-    .then(function(data) {
-        if(data.length > 0) {
-            req.session.userId = data[0]._id;
-            res.redirect('/');
-        } else {
-            res.render('login', { message: 'Try again'});
-        }
-    })
+    users.find({ user: username, password: password })
+        .then(function (data) {
+            if (data.length > 0) {
+                req.session.userId = data[0]._id;
+                res.redirect('/');
+                console.log(data);
+            } else {
+                res.redirect('/#!/login');
+            }
+        }).catch(function (err) {
+            res.json(404, err);
+        })
 })
 
 module.exports = router;

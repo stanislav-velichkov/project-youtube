@@ -10,4 +10,7 @@ app.config(function ($routeProvider){
         templateUrl: "assets/htm/register.htm",
         // controller: 'loginController'
     })
+    .when('/history', {
+        templateUrl: "assets/htm/history.htm"
+    })
 });
