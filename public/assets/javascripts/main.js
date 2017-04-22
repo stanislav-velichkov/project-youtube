@@ -17,5 +17,8 @@ app.config(function ($routeProvider){
     .when('/history', {
         templateUrl: "assets/htm/history.htm"
     })
+    .when('/profile', {
+        templateUrl: "assets/htm/profile.htm"
+    })
 });
 
