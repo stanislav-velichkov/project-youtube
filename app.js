@@ -9,7 +9,7 @@ var hbs = require('hbs');
 var session = require('express-session');
 var mongodb = require('mongo');
 var monk = require('monk');
-var db = monk("mongodbg://admin:admin@ds157439.mlab.com:57439/youtube-db");
+var db = monk("mongodb://admin:admin@ds157439.mlab.com:57439/youtube-db");
 
 // var index = require('./routes/index');
 // var users = require('./routes/users');
