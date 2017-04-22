@@ -6,7 +6,7 @@ app.controller('loginController', function ($scope, $http) {
 
 
         var Indata = {'username': $scope.username, 'password': $scope.password};
-        $http.post('http://localhost:3000/login', Indata)
+        $http.post('/login', Indata)
             .then(function(response, status, headers, config) {
                 console.log("Poluchix suobshtenieto");
                 console.log("Nodemon raboti");
