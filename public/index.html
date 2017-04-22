@@ -19,123 +19,124 @@
 </head>
 
 <body>
-    <div ng-app="mainApp">
-        <header>
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-                    <a class="navbar-brand" href="#"><img class="img-responsive" src="assets/images/logo.png" width="70px" /></a>
-                </div>
+<div ng-app="mainApp">
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img class="img-responsive" src="assets/images/logo.png" width="70px"/></a>
+            </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                        <li><a href="#"><i class="fa fa-fire" aria-hidden="true"></i> Trending</a></li>
-                        <li><a href="#!/history"><i class="fa fa-history" aria-hidden="true"></i> History</a></li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown">Best of YouTube<b
-                            class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#"><i class="fa fa-music" aria-hidden="true"></i> Music</a></li>
-                                <li><a href="#"><i class="fa fa-futbol-o" aria-hidden="true"></i> Sports</a></li>
-                                <li><a href="#"><i class="fa fa-gamepad" aria-hidden="true"></i> Gaming</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i> News</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i> Live</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                    <li><a href="#"><i class="fa fa-fire" aria-hidden="true"></i> Trending</a></li>
+                    <li><a href="#!/history"><i class="fa fa-history" aria-hidden="true"></i> History</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Best of YouTube<b
+                                class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-music" aria-hidden="true"></i> Music</a></li>
+                            <li><a href="#"><i class="fa fa-futbol-o" aria-hidden="true"></i> Sports</a></li>
+                            <li><a href="#"><i class="fa fa-gamepad" aria-hidden="true"></i> Gaming</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i> News</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i> Live</a></li>
+                        </ul>
+                    </li>
+                </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> <span>{{user.user}}</span> <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#!/login">Login</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#!/register">Register</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i>
+                            <span>{{user.user}}</span> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#!/login">Login</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#!/register">Register</a></li>
+                        </ul>
+                    </li>
+                </ul>
 
-                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-5">
-                        <form class="navbar-form" role="search">
-                            <div class="input-group">
-                                <input type="text" size="100%" class="form-control" placeholder="Search" name="q">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-default" type="submit"><i class="fa fa-search"
-                                                                             aria-hidden="true"></i>
-                            </button>
-                                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-5">
+                    <form class="navbar-form" role="search">
+                        <div class="input-group">
+                            <input type="text" size="100%" class="form-control" placeholder="Search" name="q">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="fa fa-search"
+                                                                                 aria-hidden="true"></i>
+                                </button>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
-                <!-- /.navbar-collapse -->
-            </nav>
-        </header>
-
-        <!-- main page content -->
-        <div id="pageContent">
-            
-
-            <div ng-view>
             </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+    </header>
+
+    <!-- main page content -->
+    <div id="pageContent">
 
 
-
+        <div ng-view data-ng-controller="sessionController" data-ng-init="currentSession()">
         </div>
-        <!-- /.main page content -->
 
 
-        <footer>
-            <div class="row">
-                <div id="footerLogo" class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
-                    <img src="assets/images/logo.png" width="70px" />
-                </div>
-                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9">
-                    <div class="row">
-                        <div id="footerText1" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <ul>
-                                <li><a href="">About</a></li>
-                                <li><a href="">Press</a></li>
-                                <li><a href="">Copyright</a></li>
-                                <li><a href="">Creators</a></li>
-                                <li><a href="">Advertise</a></li>
-                                <li><a href="">Developers</a></li>
-                                <li><a href="">+YouTube</a></li>
+    </div>
+    <!-- /.main page content -->
 
-                            </ul>
-                        </div>
+
+    <footer>
+        <div class="row">
+            <div id="footerLogo" class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+                <img src="assets/images/logo.png" width="70px"/>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9">
+                <div class="row">
+                    <div id="footerText1" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <ul>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Press</a></li>
+                            <li><a href="">Copyright</a></li>
+                            <li><a href="">Creators</a></li>
+                            <li><a href="">Advertise</a></li>
+                            <li><a href="">Developers</a></li>
+                            <li><a href="">+YouTube</a></li>
+
+                        </ul>
                     </div>
-                    <div class="row">
-                        <div id="footerText2" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <ul>
-                                <li><a href="">Terms</a></li>
-                                <li><a href="">Privacy</a></li>
-                                <li><a href="">Policy & Safety</a></li>
-                                <li><a href="">Send feedback</a></li>
-                                <li><a href="">Test new features</a></li>
-                                <li><a href="">© 2017 YouTube, LLC</a></li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="row">
+                    <div id="footerText2" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <ul>
+                            <li><a href="">Terms</a></li>
+                            <li><a href="">Privacy</a></li>
+                            <li><a href="">Policy & Safety</a></li>
+                            <li><a href="">Send feedback</a></li>
+                            <li><a href="">Test new features</a></li>
+                            <li><a href="">© 2017 YouTube, LLC</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-    </div>
+        </div>
     </footer>
-    </div>
+</div>
 
-    <script src="assets/javascripts/main.js"></script>
-    <script src="assets/javascripts/loginController.js"></script>
-    <script src="assets/javascripts/registerController.js"></script>
+<script src="assets/javascripts/main.js"></script>
+<script src="assets/javascripts/loginController.js"></script>
+<script src="assets/javascripts/registerController.js"></script>
+<script src="assets/javascripts/sessionController.js"></script>
 </body>
 
 </html>
