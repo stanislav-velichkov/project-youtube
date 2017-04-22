@@ -25,9 +25,3 @@ app.controller('sessionController', function ($scope, $http, $rootScope, $locati
     }
 })
 
-function menuToLoggedIn() {
-    $(document).ready(function () {
-        $("#loginButton").html("Profile").attr('id', 'profileButton').attr('href', '#!/profile');
-        $("#registerButton").html("Logout").attr('id', 'logoutButton').attr('href', '/');
-    });
-}
