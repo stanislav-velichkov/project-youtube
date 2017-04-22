@@ -7,9 +7,19 @@ router.post('/', function (req, res, next) {
     var email = req.body.email;
     var db = req.db;
     var users = db.get('users');
-    users.insert({user: username, password: password, email: email})
-        .then(function () {
-            res.redirect('..#!/login');
+
+    users.find({ user: username, password: password })
+        .then(function (data) {
+            if (data.length > 0) {
+                req.session.userId = data[0]._id;
+                var user = data[0];                
+                res.json(user);
+                //req.session.userId
+            } else {
+                users.insert({user: username, password: password, email: email})
+            }
+        }).catch(function (err) {
+            res.json(500, err);
         });
 });
 

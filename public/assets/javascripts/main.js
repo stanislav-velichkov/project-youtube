@@ -2,6 +2,10 @@ var app = angular.module('mainApp', ['ngRoute']);
 
 app.config(function ($routeProvider){
     $routeProvider
+    .when('/', {
+        templateUrl: "assets/htm/index.htm",
+        // controller: 'loginController'
+    })
     .when('/login', {
         templateUrl: "assets/htm/login.htm",
         // controller: 'loginController'
@@ -14,3 +18,4 @@ app.config(function ($routeProvider){
         templateUrl: "assets/htm/history.htm"
     })
 });
+
