@@ -17,6 +17,8 @@ router.post('/', function (req, res, next) {
                 //req.session.userId
             } else {
                 users.insert({user: username, password: password, email: email})
+                console.log('regna sa');
+                res.json('');
             }
         }).catch(function (err) {
             res.json(500, err);

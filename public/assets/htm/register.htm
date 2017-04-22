@@ -1,5 +1,6 @@
+<div ng-controller="registerController">   
 <fieldset class="login-register">
-    <form action="/register" method="post">
+    <form ng-submit="register()">
         <table>
             <thead>
                 <tr>
@@ -8,16 +9,16 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="text" name="username" placeholder="Username"></td>
+                    <td><input type="text" ng-model="username" placeholder="Username"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="email" placeholder="E-mail"></td>
+                    <td><input type="text" ng-model="email" placeholder="E-mail"></td>
                 </tr>
                 <tr>
-                    <td><input type="password" name="password" placeholder="Password"></td>
+                    <td><input type="password" ng-model="password" placeholder="Password"></td>
                 </tr>
                 <tr>
-                    <td><input type="password" name="repeatPassword" placeholder="Repeat Password"></td>
+                    <td><input type="password" ng-model="repeatPassword" placeholder="Repeat Password"></td>
                 </tr>
                 <tfoot>
                     <tr>
@@ -27,8 +28,5 @@
             </tbody>
         </table>
     </form>
-
-    <div class='error'>
-        {{message}}
-    </div>
 </fieldset>
+</div>

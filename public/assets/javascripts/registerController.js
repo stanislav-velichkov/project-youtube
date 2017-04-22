@@ -1,26 +1,26 @@
 var app = angular.module('mainApp');
 
 
-app.controller('loginController', function ($scope, $http, $rootScope, $location) {
-    $scope.login = function() {
+app.controller('registerController', function ($scope, $http, $location) {
+    $scope.register = function() {
 
 
-        var Indata = {'username': $scope.username, 'password': $scope.password};
-        $http.post('/login', Indata)
+        var Indata = {'username': $scope.username, 'password': $scope.password, 'email': $scope.email};
+        $http.post('/register', Indata)
             .then(function(response, status, headers, config) {
                 console.log("Poluchix suobshtenieto");
                 console.log("Nodemon raboti");
                 
                 console.log(typeof(response.data));
-
+                console.log(response.data);
                 // if(typeof(response.data) != 'string' ) {
                 if(response.data != '' ) {
+                    alert('Username Exists');
                     // Globalna promenliva za da mojete da q vijdate ot vsqkude v angular trqbva da q includnete i gore $rootScope
-                    $rootScope.user = response.data
-                    console.log($rootScope.user);
-                    $location.path("/");
+                    // $rootScope.user = response.data
                 } else {
-                     alert('Username Does Not Exist');
+                    console.log('registered')
+                    $location.path("/login");
                 }
 
             }, function(response, status, headers, config) {
