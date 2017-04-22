@@ -13,6 +13,7 @@ app.controller('sessionController', function ($scope, $http, $rootScope, $locati
 
                 // if(typeof(response.data) != 'string' ) {
                 if (response.data != '') {
+                    menuToLoggedIn();
                     // Globalna promenliva za da mojete da q vijdate ot vsqkude v angular trqbva da q includnete i gore $rootScope
                     $rootScope.user = response.data;
                     console.log($rootScope.user);
@@ -23,3 +24,10 @@ app.controller('sessionController', function ($scope, $http, $rootScope, $locati
 
     }
 })
+
+function menuToLoggedIn() {
+    $(document).ready(function () {
+        $("#loginButton").html("Profile").attr('id', 'profileButton').attr('href', '#!/profile');
+        $("#registerButton").html("Logout").attr('id', 'logoutButton').attr('href', '/');
+    });
+}

@@ -20,8 +20,6 @@ app.controller('loginController', function ($scope, $http, $rootScope, $location
                     console.log($rootScope.user);
                     $location.path("/");
 
-                    menuToLoggedIn();
-
                 } else {
                     alert('Username Does Not Exist');
                 }
@@ -32,10 +30,3 @@ app.controller('loginController', function ($scope, $http, $rootScope, $location
 
     }
 })
-
-function menuToLoggedIn() {
-    $(document).ready(function () {
-        $("#loginButton").html("Profile").attr('id', 'profileButton').attr('href', '#!/profile');
-        $("#registerButton").html("Logout").attr('id', 'logoutButton').attr('href', '/');
-    });
-}
