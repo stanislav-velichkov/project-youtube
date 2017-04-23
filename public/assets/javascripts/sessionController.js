@@ -21,7 +21,7 @@ app.controller('sessionController', function ($scope, $http, $rootScope, $locati
                 }
             }, function (response, status, headers, config) {
                 alert('Server Error');
-            })
+            });
     };
 });
 

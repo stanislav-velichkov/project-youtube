@@ -9,6 +9,7 @@ app.controller('logoutController', function ($scope, $http, $rootScope, $locatio
                 menuToLoggedout();
                 $rootScope.user = '';
                 console.log('destroyed session')
+                $location.path('/');
             }, function (response, status, headers, config) {
                 // alert('Server Error');
             })
