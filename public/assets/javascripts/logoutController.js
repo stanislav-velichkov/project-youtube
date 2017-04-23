@@ -17,12 +17,3 @@ app.controller('logoutController', function ($scope, $http, $rootScope, $locatio
     }
 });
 
-function menuToLoggedout() {
-    $(document).ready(function () {
-        $("#profileButton").css('display', 'none');
-        $("#logoutButton").css('display', 'none');
-
-        $("#loginButton").css('display', 'block');
-        $("#registerButton").css('display', 'block');
-    });
-}

@@ -31,12 +31,3 @@ app.controller('loginController', function ($scope, $http, $rootScope, $location
     }
 });
 
-function menuToLoggedIn() {
-    $(document).ready(function () {
-        $("#loginButton").css('display', 'none');
-        $("#registerButton").css('display', 'none');
-
-        $("#profileButton").css('display', 'block');
-        $("#logoutButton").css('display', 'block');
-    });
-}
