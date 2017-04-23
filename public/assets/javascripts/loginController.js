@@ -33,7 +33,10 @@ app.controller('loginController', function ($scope, $http, $rootScope, $location
 
 function menuToLoggedIn() {
     $(document).ready(function () {
-        $("#loginButton").html("Profile").attr('id', 'profileButton').attr('href', '#!/profile');
-        $("#registerButton").html("Logout").attr('id', 'logoutButton').attr('href', '');
+        $("#loginButton").css('display', 'none');
+        $("#registerButton").css('display', 'none');
+
+        $("#profileButton").css('display', 'block');
+        $("#logoutButton").css('display', 'block');
     });
 }

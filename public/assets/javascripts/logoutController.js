@@ -18,7 +18,10 @@ app.controller('logoutController', function ($scope, $http, $rootScope, $locatio
 
 function menuToLoggedout() {
     $(document).ready(function () {
-        $("#profileButton").html("Login").attr('id', 'loginButton').attr('href', '#!/login');
-        $("#logoutButton").html("Register").attr('id', 'registerButton').attr('href', '#!/register');
+        $("#profileButton").css('display', 'none');
+        $("#logoutButton").css('display', 'none');
+
+        $("#loginButton").css('display', 'block');
+        $("#registerButton").css('display', 'block');
     });
 }
