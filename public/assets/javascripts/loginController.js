@@ -16,7 +16,7 @@ app.controller('loginController', function ($scope, $http, $rootScope, $location
                 // if(typeof(response.data) != 'string' ) {
                 if (response.data != '') {
                     // Globalna promenliva za da mojete da q vijdate ot vsqkude v angular trqbva da q includnete i gore $rootScope
-                    $rootScope.user = response.data
+                    $rootScope.user = response.data;
                     console.log($rootScope.user);
                     $location.path("/");
                     menuToLoggedIn();
@@ -29,7 +29,7 @@ app.controller('loginController', function ($scope, $http, $rootScope, $location
             })
 
     }
-})
+});
 
 function menuToLoggedIn() {
     $(document).ready(function () {
