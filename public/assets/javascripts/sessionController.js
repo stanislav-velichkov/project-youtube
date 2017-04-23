@@ -16,6 +16,8 @@ app.controller('sessionController', function ($scope, $http, $rootScope, $locati
                     // Globalna promenliva za da mojete da q vijdate ot vsqkude v angular trqbva da q includnete i gore $rootScope
                     $rootScope.user = response.data;
                     console.log($rootScope.user);
+                } else {
+                    menuToLoggedout();
                 }
             }, function (response, status, headers, config) {
                 alert('Server Error');

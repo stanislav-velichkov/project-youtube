@@ -67,10 +67,16 @@ li.dropdown > ul > li > a {
 }
 
 #pageContent {
-    width: 95%;
-    margin: 55px auto;
+    width: 90%;
+    margin: 60px auto;
     font-size: 1.2em;
     min-height: 100vh;
+    background-color:white;
+    padding: 10px 30px;
+}
+
+body {
+    background-color:#e7e7e7;
 }
 
 .row {
@@ -163,7 +169,7 @@ footer ul a:hover {
 .login-register table {
     margin: 30px auto;
     background-color: #f8f8f8;
-    width: 30%;
+    width: 40%;
     box-sizing: border-box;
 }
 
@@ -173,6 +179,11 @@ footer ul a:hover {
         background-color: #f8f8f8;
         width: 100%;
     }
+
+    #pageContent {
+    width: 98%;
+    padding: 1px 10px;
+}
 
 }
 @media (max-width: 840px) {
