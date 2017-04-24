@@ -218,3 +218,26 @@ footer ul a:hover {
 .login-register table input {
     text-align: center;
 }
+
+#profile #uploadResult {
+    color: #b30014;
+    font-style: oblique;
+}
+
+#profile h2 {
+    border-bottom: 2px solid #b30014;
+    color: #333;
+}
+
+#profile h3 {
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+#profile p {
+    color: #777;
+}
+
+#profile span {
+    color: #333;
+}
