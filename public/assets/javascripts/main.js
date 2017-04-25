@@ -8,17 +8,19 @@ app.config(function ($routeProvider){
     })
     .when('/login', {
         templateUrl: "assets/htm/login.htm",
-        // controller: 'loginController'
+        controller: 'userController'
     })
     .when('/register', {
         templateUrl: "assets/htm/register.htm",
-        // controller: 'loginController'
+        controller: 'userController'
     })
     .when('/history', {
-        templateUrl: "assets/htm/history.htm"
+        templateUrl: "assets/htm/history.htm",
+        controller: 'userController'
     })
     .when('/profile', {
-        templateUrl: "assets/htm/profile.htm"
+        templateUrl: "assets/htm/profile.htm",
+        controller: 'userController'
     })
 });
 

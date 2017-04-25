@@ -192,7 +192,10 @@ footer ul a:hover {
     }
 
 }
-
+.login-register p {
+    color: #b30014;
+    font-style: oblique;
+}
 
 .login-register table td {
     padding-top: 2em;
@@ -219,8 +222,13 @@ footer ul a:hover {
     text-align: center;
 }
 
-#profile #uploadResult {
+#profile #failure {
     color: #b30014;
+    font-style: oblique;
+}
+
+#profile #success {
+    color: green;
     font-style: oblique;
 }
 
@@ -245,5 +253,5 @@ footer ul a:hover {
 /*Validation form*/
 
 input.ng-invalid.ng-dirty {
-    border: 1px solid red;
+    border: 1px solid #b30014;
 }
