@@ -29,14 +29,3 @@ app.controller('registerController', function ($scope, $http, $location) {
 
     }
 });
-
-app.directive('match', function () {
-    return {
-        restrict: 'A',
-        controller: function ($scope) {
-            $scope.doConfirm = function () {
-
-            }
-        }
-    }
-})
