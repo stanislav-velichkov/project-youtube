@@ -19,7 +19,9 @@
             <input type="file" name="uploadVideo" id="uploadVideo" />
             <input type='submit' id="uploadButton" value='Upload' />
         </form>
-        <div id="uploadResult">
+        <div id="success">
+        </div>
+        <div id="failure">
         </div>
         </div>
     </div>
@@ -29,10 +31,12 @@
     var isValid = false;
     
     $("#uploadForm").change(function () {
+        $("#failure").html('');
+        $("#success").html('');
         console.log($('#uploadVideo').val().split('.').pop().toLowerCase());
-            var fileExtension = ['mp4', 'mov', 'wmv', 'flv', 'avi'];
+            var fileExtension = ['mp4', 'mov', 'wmv', 'flv', 'avi', 'webm'];
             if ($.inArray($('#uploadVideo').val().split('.').pop().toLowerCase(), fileExtension) == -1) {
-                $("#uploadResult").html('File Extension not Allowed');;
+                $("#failure").html('File Extension not Allowed');
                 isValid = false;
             } else {
                 isValid = true;
@@ -53,7 +57,7 @@
                 contentType: false,
                 success: function(result){
                     console.log(result);
-                    $("#uploadResult").html('File Uploaded');
+                    $("#success").html('File Uploaded');
                 }
             });
             }
