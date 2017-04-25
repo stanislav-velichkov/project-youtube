@@ -16,11 +16,11 @@ app.config(function ($routeProvider){
     })
     .when('/history', {
         templateUrl: "assets/htm/history.htm",
-        controller: 'userController'
+        controller: 'historyController'
     })
     .when('/profile', {
         templateUrl: "assets/htm/profile.htm",
-        controller: 'userController'
+        controller: 'profileController'
     })
 });
 
