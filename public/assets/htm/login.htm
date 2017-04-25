@@ -10,7 +10,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <input type="text" name="username" ng-model="user.username" placeholder="Username"
+                        <input class="hideError" type="text" name="username" ng-model="user.username" placeholder="Username"
                                ng-minlength="3" ng-maxlength="9" required>
                         <p ng-show="frm.username.$dirty && frm.username.$error.required">Required!</p>
                         <p ng-show="frm.username.$dirty && frm.username.$error.minlength">Too short!</p>
@@ -19,11 +19,16 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="password" name="password" ng-model="user.password" placeholder="Password"
+                        <input class="hideError" type="password" name="password" ng-model="user.password" placeholder="Password"
                                ng-minlength="5" required>
                         <p ng-show="frm.password.$dirty && frm.password.$error.required">Required!</p>
                         <p ng-show="frm.password.$dirty && frm.password.$error.minlength">Password must be at least 5
                             characters!</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p id="loginErrorMsg"></p>
                     </td>
                 </tr>
                 <tfoot>
@@ -38,3 +43,9 @@
 </fieldset>
 
 </div>
+
+<script>
+    $('.hideError').on('click', function(){
+        $('#loginErrorMsg').html('');
+    })
+</script>

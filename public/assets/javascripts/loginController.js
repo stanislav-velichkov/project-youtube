@@ -21,7 +21,7 @@ app.controller('loginController', function ($scope, $http, $rootScope, $location
                     $location.path("/");
                     menuToLoggedIn();
                 } else {
-                    alert('Username Does Not Exist');
+                    $('#loginErrorMsg').html('Username or Password invalid!');
                 }
 
             }, function (response, status, headers, config) {
