@@ -1,32 +1,62 @@
-<div ng-controller="registerController">   
-<fieldset class="login-register">
-    <form ng-submit="register()">
-        <table>
-            <thead>
+<div ng-controller="registerController">
+    <fieldset class="login-register">
+        <form name="frmR" ng-submit="register()">
+            <table>
+                <thead>
                 <tr>
                     <th>Register</th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 <tr>
-                    <td><input type="text" ng-model="username" placeholder="Username"></td>
+                    <td>
+                        <input type="text" name="username" ng-model="user.username" placeholder="Username"
+                               ng-minlength="3" ng-maxlength="9" required>
+                        <p ng-show="frmR.username.$dirty && frmR.username.$error.required">Required!</p>
+                        <p ng-show="frmR.username.$dirty && frmR.username.$error.minlength">Too short!</p>
+                        <p ng-show="frmR.username.$dirty && frmR.username.$error.maxlength">Too long!</p>
+                    </td>
                 </tr>
                 <tr>
-                    <td><input type="text" ng-model="email" placeholder="E-mail"></td>
+                    <td>
+                        <input type="email" name="email" ng-model="user.email" placeholder="E-mail" required>
+                        <p ng-show="frmR.email.$dirty && frmR.email.$error.required">Required!</p>
+                        <p ng-show="frmR.email.$dirty && frmR.email.$error.email">Not an email!</p>
+                    </td>
                 </tr>
                 <tr>
-                    <td><input type="password" ng-model="password" placeholder="Password"></td>
+                    <td>
+                        <input type="password" name="password"
+                               ng-model="user.password"
+                               placeholder="Password"
+                               ng-minlength="5"
+                               ng-pattern="user.confirmPassword"
+                               required>
+                        <p ng-show="frmR.password.$dirty && frmR.password.$error.required">Required!</p>
+                        <p ng-show="frmR.password.$dirty && frmR.password.$error.minlength">Password must be at least 5
+                            characters!</p>
+                    </td>
                 </tr>
                 <tr>
-                    <td><input type="password" ng-model="repeatPassword" placeholder="Repeat Password"></td>
+                    <td>
+                        <input type="password"
+                               name="confirmPassword"
+                               ng-model="confirmPassword"
+                               placeholder="Confirm Password"
+                               ng-pattern="user.password"
+                               required>
+                        <p ng-show="frmR.confirmPassword.$dirty && frmR.confirmPassword.$error.required">Required!</p>
+                        <p ng-show="frmR.confirmPassword.$dirty && frmR.confirmPassword.$invalid">Passwords do not
+                            match!</p>
+                    </td>
                 </tr>
                 <tfoot>
-                    <tr>
-                        <td><input type="submit" value="Register"></td>
-                    </tr>
+                <tr>
+                    <td><input type="submit" value="Register" ng-disabled="frmR.$invalid"></td>
+                </tr>
                 </tfoot>
-            </tbody>
-        </table>
-    </form>
-</fieldset>
+                </tbody>
+            </table>
+        </form>
+    </fieldset>
 </div>

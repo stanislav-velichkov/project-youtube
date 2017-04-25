@@ -5,7 +5,7 @@ app.controller('loginController', function ($scope, $http, $rootScope, $location
     $scope.login = function () {
 
 
-        var Indata = { 'username': $scope.username, 'password': $scope.password };
+        var Indata = {'username': $scope.user.username, 'password': $scope.user.password};
         $http.post('/login', Indata)
             .then(function (response, status, headers, config) {
                 console.log("Poluchix suobshtenieto");

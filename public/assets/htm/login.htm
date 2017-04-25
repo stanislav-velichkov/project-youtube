@@ -1,6 +1,6 @@
 <div ng-controller="loginController">   
 <fieldset class="login-register">
-    <form ng-submit="login()">
+    <form name="frm" ng-submit="login()">
         <table>
             <thead>
                 <tr>
@@ -9,14 +9,26 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="text"  ng-model="username" placeholder="Username"></td>
+                    <td>
+                        <input type="text" name="username" ng-model="user.username" placeholder="Username"
+                               ng-minlength="3" ng-maxlength="9" required>
+                        <p ng-show="frm.username.$dirty && frm.username.$error.required">Required!</p>
+                        <p ng-show="frm.username.$dirty && frm.username.$error.minlength">Too short!</p>
+                        <p ng-show="frm.username.$dirty && frm.username.$error.maxlength">Too long!</p>
+                    </td>
                 </tr>
                 <tr>
-                    <td><input type="password" ng-model="password" placeholder="Password"></td>
+                    <td>
+                        <input type="password" name="password" ng-model="user.password" placeholder="Password"
+                               ng-minlength="5" required>
+                        <p ng-show="frm.password.$dirty && frm.password.$error.required">Required!</p>
+                        <p ng-show="frm.password.$dirty && frm.password.$error.minlength">Password must be at least 5
+                            characters!</p>
+                    </td>
                 </tr>
                 <tfoot>
                     <tr>
-                        <td><input type="submit" value="Login" ></td>
+                        <td><input type="submit" value="Login" ng-disabled="frm.$invalid"></td>
                     </tr>
                 </tfoot>
                 

@@ -241,3 +241,9 @@ footer ul a:hover {
 #profile span {
     color: #333;
 }
+
+/*Validation form*/
+
+input.ng-invalid.ng-dirty {
+    border: 1px solid red;
+}

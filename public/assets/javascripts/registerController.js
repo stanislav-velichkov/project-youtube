@@ -2,10 +2,10 @@ var app = angular.module('mainApp');
 
 
 app.controller('registerController', function ($scope, $http, $location) {
+
     $scope.register = function() {
 
-
-        var Indata = {'username': $scope.username, 'password': $scope.password, 'email': $scope.email};
+        var Indata = {'username': $scope.user.username, 'password': $scope.user.password, 'email': $scope.user.email};
         $http.post('/register', Indata)
             .then(function(response, status, headers, config) {
                 console.log("Poluchix suobshtenieto");
@@ -26,6 +26,17 @@ app.controller('registerController', function ($scope, $http, $location) {
             }, function(response, status, headers, config) {
                 alert('Server Error');
             })
-        
+
+    }
+});
+
+app.directive('match', function () {
+    return {
+        restrict: 'A',
+        controller: function ($scope) {
+            $scope.doConfirm = function () {
+
+            }
+        }
     }
 })
