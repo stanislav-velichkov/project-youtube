@@ -13,6 +13,19 @@ app.controller('userController', function ($scope, $http, $rootScope, $location)
     console.log($scope.loggedInUser());
 });
 
+app.controller('regController', function ($scope, $http, $rootScope, $location) {
+    $scope.registeredUser = function () {
+        if ($rootScope.user) {
+            $location.path('/');
+            return true;
+        } else {
+            $location.path('/register');
+            return false;
+        }
+    }
+    console.log($scope.registeredUser());
+});
+
 app.controller('historyController', function ($scope, $http, $rootScope, $location) {
     $scope.loggedInHistory = function () {
         if($rootScope.user) {

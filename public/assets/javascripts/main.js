@@ -12,7 +12,7 @@ app.config(function ($routeProvider){
     })
     .when('/register', {
         templateUrl: "assets/htm/register.htm",
-        controller: 'userController'
+        controller: 'regController'
     })
     .when('/history', {
         templateUrl: "assets/htm/history.htm",

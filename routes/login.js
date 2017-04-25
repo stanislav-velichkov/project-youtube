@@ -1,4 +1,5 @@
 var express = require('express');
+var passwordHash = require('password-hash');
 var router = express.Router();
 
 router.post('/', function (req, res, next) {
@@ -8,20 +9,24 @@ router.post('/', function (req, res, next) {
     console.log(username + " e imeto a parolata e " + password);
     var db = req.db;
     var users = db.get('users');
-    users.find({ user: username, password: password })
+    users.find({user: username})
         .then(function (data) {
             if (data.length > 0) {
                 req.session.userId = data[0]._id;
-                var user = data[0];  
-                console.log(user);              
-                res.json(user);
+                var hashedPassword = data[0].password;
+
+                if (passwordHash.verify(password, hashedPassword)) {
+                    var user = data[0];
+                    console.log(user);
+                    res.json(user);
+                }
                 //req.session.userId
             } else {
                 res.json('');
             }
         }).catch(function (err) {
-            res.json(500, err);
-        });
+        res.json(500, err);
+    });
 });
 
 module.exports = router;

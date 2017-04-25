@@ -11,6 +11,7 @@ var fileUpload = require('express-fileupload');
 var mongodb = require('mongo');
 var monk = require('monk');
 var db = monk("mongodb://admin:admin@ds157439.mlab.com:57439/youtube-db");
+var passwordHash = require('password-hash');
 
 var login = require('./routes/login');
 var register = require('./routes/register');
