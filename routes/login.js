@@ -9,7 +9,7 @@ router.post('/', function (req, res, next) {
     console.log(username + " e imeto a parolata e " + password);
     var db = req.db;
     var users = db.get('users');
-    users.find({user: username})
+    users.find({username: username})
         .then(function (data) {
             if (data.length > 0) {
                 req.session.userId = data[0]._id;

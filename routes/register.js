@@ -4,20 +4,21 @@ var router = express.Router();
 
 router.post('/', function (req, res, next) {
     var username = req.body.username;
-    var hashedPassword = passwordHash.generate(req.body.password);
     var email = req.body.email;
     var db = req.db;
     var users = db.get('users');
-
-    users.find({$or: [{user: username}, {email: email}]})
+    console.log(username);
+    users.find({$or: [{username: username}, {email: email}]})
         .then(function (data) {
             if (data.length > 0) {
                 req.session.userId = data[0]._id;
-                var user = data[0];                
+                var user = data[0];
                 res.json(user);
                 //req.session.userId
             } else {
-                users.insert({user: username, password: hashedPassword, email: email})
+                var userDB = req.body;
+                userDB.password = passwordHash.generate(userDB.password);
+                users.insert(req.body);
                 console.log('regna sa');
                 res.json('');
             }

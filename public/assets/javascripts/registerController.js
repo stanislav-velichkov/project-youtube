@@ -5,7 +5,8 @@ app.controller('registerController', function ($scope, $http, $location) {
 
     $scope.register = function() {
 
-        var Indata = {'username': $scope.user.username, 'password': $scope.user.password, 'email': $scope.user.email};
+        var Indata = new User($scope.user.username, $scope.user.email, $scope.user.password);
+        console.log(Indata);
         $http.post('/register', Indata)
             .then(function(response, status, headers, config) {
                 console.log("Poluchix suobshtenieto");
