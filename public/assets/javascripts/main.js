@@ -8,19 +8,43 @@ app.config(function ($routeProvider){
     })
     .when('/login', {
         templateUrl: "assets/htm/login.htm",
-        controller: 'userController'
+        resolve: {
+            'check': function($rootScope, $location) {
+                if($rootScope.username != undefined) {
+                    $location.path('/');
+                }
+            }
+        }
     })
     .when('/register', {
         templateUrl: "assets/htm/register.htm",
-        controller: 'regController'
+        resolve: {
+            'check': function($rootScope, $location) {
+                if($rootScope.username != undefined) {
+                    $location.path('/');
+                }
+            }
+        }
     })
     .when('/history', {
         templateUrl: "assets/htm/history.htm",
-        controller: 'historyController'
+        resolve: {
+            'check': function($rootScope, $location) {
+                if($rootScope.username == undefined) {
+                    $location.path('/login');
+                }
+            }
+        }
     })
     .when('/profile', {
         templateUrl: "assets/htm/profile.htm",
-        controller: 'profileController'
+        resolve: {
+            'check': function($rootScope, $location) {
+                if($rootScope.username == undefined) {
+                    $location.path('/login');
+                }
+            }
+        }
     })
 });
 
