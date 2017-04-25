@@ -4,13 +4,14 @@ if(window.matchMedia( "(max-width: 768px)" ).matches) {
     });
 }
 
-function menuToLoggedIn() {
+function menuToLoggedIn($rootScope) {
     $(document).ready(function () {
         $("#loginButton").css('display', 'none');
         $("#registerButton").css('display', 'none');
 
         $("#profileButton").css('display', 'block');
         $("#logoutButton").css('display', 'block');
+
     });
 }
 
@@ -21,5 +22,6 @@ function menuToLoggedout() {
 
         $("#loginButton").css('display', 'block');
         $("#registerButton").css('display', 'block');
+
     });
 }

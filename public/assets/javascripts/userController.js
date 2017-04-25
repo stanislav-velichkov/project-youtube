@@ -2,7 +2,7 @@ var app = angular.module('mainApp');
 
 app.controller('userController', function ($scope, $http, $rootScope, $location) {
     $scope.loggedInUser = function () {
-        if($rootScope.user) {
+        if($rootScope.username != undefined) {
             $location.path('/');
             return true;
         } else {
@@ -15,7 +15,7 @@ app.controller('userController', function ($scope, $http, $rootScope, $location)
 
 app.controller('regController', function ($scope, $http, $rootScope, $location) {
     $scope.registeredUser = function () {
-        if ($rootScope.user) {
+        if ($rootScope.username != undefined) {
             $location.path('/');
             return true;
         } else {
@@ -28,7 +28,8 @@ app.controller('regController', function ($scope, $http, $rootScope, $location) 
 
 app.controller('historyController', function ($scope, $http, $rootScope, $location) {
     $scope.loggedInHistory = function () {
-        if($rootScope.user) {
+        console.log(!$rootScope.username);
+        if($rootScope.username != undefined) {
             $location.path('/history');
             return true;
         } else {
@@ -41,7 +42,7 @@ app.controller('historyController', function ($scope, $http, $rootScope, $locati
 
 app.controller('profileController', function ($scope, $http, $rootScope, $location) {
     $scope.loggedInProfile = function () {
-        if($rootScope.user) {
+        if($rootScope.username != undefined) {
             $location.path('/profile');
             return true;
         } else {

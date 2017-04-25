@@ -15,6 +15,7 @@ app.controller('sessionController', function ($scope, $http, $rootScope, $locati
                     menuToLoggedIn();
                     // Globalna promenliva za da mojete da q vijdate ot vsqkude v angular trqbva da q includnete i gore $rootScope
                     $rootScope.user = response.data;
+                    $rootScope.username = $rootScope.user.username;
                     console.log($rootScope.user);
                 } else {
                     menuToLoggedout();
