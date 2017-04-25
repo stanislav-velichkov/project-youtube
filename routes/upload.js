@@ -7,7 +7,7 @@ router.post('/', function(req, res) {
  
   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file 
   let uploadVideo = req.files.uploadVideo;
-  console.log(req.files.uploadVideo.mimetype);
+    console.log(req.files.uploadVideo.mimetype);
  
   // Use the mv() method to place the file somewhere on your server 
   uploadVideo.mv('./uploads/' + req.files.uploadVideo.name, function(err) {
