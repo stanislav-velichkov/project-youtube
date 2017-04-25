@@ -19,6 +19,9 @@
                 <input type="file" name="uploadVideo" id="uploadVideo"/>
                 <input type='submit' id="uploadButton" value='Upload'/>
             </form>
+            <div id="uploading">
+                <span>Uploading...</span>
+            </div>
             <div id="success">
             </div>
             <div id="failure">
@@ -53,6 +56,7 @@
                 //validate
 
                 if (isValid) {
+                    $('#uploading').css('display', 'inline-block');
                     $.ajax({
                         url: '/upload',
                         type: 'POST',
@@ -61,6 +65,7 @@
                         contentType: false,
                         success: function (result) {
                             console.log(result);
+                            $('#uploading').css('display', 'none');
                             $("#success").html('File Uploaded');
                         }
                     });
