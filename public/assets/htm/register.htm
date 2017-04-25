@@ -10,7 +10,7 @@
                 <tbody>
                 <tr>
                     <td>
-                        <input type="text" name="username" ng-model="user.username" placeholder="Username"
+                        <input type="text" class="hideError" name="username" ng-model="user.username" placeholder="Username"
                                ng-minlength="3" ng-maxlength="9" required>
                         <p ng-show="frmR.username.$dirty && frmR.username.$error.required">Required!</p>
                         <p ng-show="frmR.username.$dirty && frmR.username.$error.minlength">Too short!</p>
@@ -19,7 +19,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="email" name="email" ng-model="user.email" placeholder="E-mail" required>
+                        <input type="email" class="hideError" name="email" ng-model="user.email" placeholder="E-mail" required>
                         <p ng-show="frmR.email.$dirty && frmR.email.$error.required">Required!</p>
                         <p ng-show="frmR.email.$dirty && frmR.email.$error.email">Not an email!</p>
                     </td>
@@ -50,6 +50,11 @@
                             match!</p>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <p id="errorMsg"></p>
+                    </td>
+                </tr>
                 <tfoot>
                 <tr>
                     <td><input type="submit" value="Register" ng-disabled="frmR.$invalid"></td>
@@ -60,3 +65,10 @@
         </form>
     </fieldset>
 </div>
+
+
+<script>
+    $('.hideError').on('click', function(){
+        $('#errorMsg').html('');
+    })
+</script>

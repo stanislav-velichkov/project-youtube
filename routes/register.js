@@ -9,7 +9,7 @@ router.post('/', function (req, res, next) {
     var db = req.db;
     var users = db.get('users');
 
-    users.find({user: username, email: email})
+    users.find({$or: [{user: username}, {email: email}]})
         .then(function (data) {
             if (data.length > 0) {
                 req.session.userId = data[0]._id;
