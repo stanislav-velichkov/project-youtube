@@ -15,21 +15,34 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <h3>Upload a Video</h3>
             <form ref='uploadForm' id='uploadForm' method='post' action="/upload" encType="multipart/form-data">
-                <input type="file" name="uploadVideo" id="uploadVideo"/>
-                <input type='submit' id="uploadButton" value='Upload'/>
+                <input type="file" name="uploadVideo" id="uploadVideo" />
+                <div id="failure">
+                </div>
+                <div id="videoInfo">
+                    <div>
+                        <input type="text" name="title" placeholder="Add Title" />
+                    </div>
+                    <div>
+                        <textarea name="description" rows="5">Add Description</textarea>
+                    </div>
+                    <div>
+                        <textarea name="tags" rows="5">Add Tags Separated By Comma (music, sports, news... )</textarea>
+                    </div>
+                </div>
+                <input type='submit' id="uploadButton" value='Upload' />
+
             </form>
             <div id="uploading">
-                <img src="assets/images/loading.gif" width="30px" height="30px"/><span> Uploading...</span>
+                <img src="assets/images/loading.gif" width="30px" height="30px" /><span> Uploading...</span>
             </div>
             <div id="success">
             </div>
-            <div id="failure">
-            </div>
+
         </div>
     </div>
 </div>
 
-    <script>
+<script>
         var isValid = false;
 
         $("#uploadForm").change(function () {
