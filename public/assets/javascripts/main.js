@@ -1,4 +1,11 @@
-var app = angular.module('mainApp', ['ngRoute']);
+var app = angular.module('mainApp', [
+    'ngRoute',
+    "ngSanitize",
+    "com.2fdevs.videogular",
+    "com.2fdevs.videogular.plugins.controls",
+    "com.2fdevs.videogular.plugins.overlayplay",
+    "com.2fdevs.videogular.plugins.poster"
+]);
 
 app.config(function ($routeProvider){
     $routeProvider
@@ -46,5 +53,8 @@ app.config(function ($routeProvider){
             }
         }
     })
+        .when('/video', {
+            templateUrl: "assets/htm/video.htm"
+        })
 });
 
