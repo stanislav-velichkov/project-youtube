@@ -268,3 +268,18 @@ input.ng-invalid.ng-dirty {
 #uploading span {
     padding: 10px;
 }
+
+#videoInfo div {
+    padding: 5px 0px;
+    width: 40%;
+    color: #999;
+}
+
+#videoInfo div input {
+    color: #333;
+}
+
+#videoInfo input, #videoInfo textarea {
+    width: 100%;
+    
+}
