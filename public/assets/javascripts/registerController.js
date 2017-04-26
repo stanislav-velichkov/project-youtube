@@ -16,7 +16,7 @@ app.controller('registerController', function ($scope, $http, $location) {
                 console.log(response.data);
                 // if(typeof(response.data) != 'string' ) {
                 if(response.data != '' ) {
-                    $('#regErrorMsg').html('Username or Email already taken!');
+                    $('#regErrorMsg').html('Username or Email already in use!');
                     // Globalna promenliva za da mojete da q vijdate ot vsqkude v angular trqbva da q includnete i gore $rootScope
                     // $rootScope.user = response.data
                 } else {

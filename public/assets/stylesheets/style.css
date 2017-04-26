@@ -255,3 +255,11 @@ footer ul a:hover {
 input.ng-invalid.ng-dirty {
     border: 1px solid #b30014;
 }
+
+#uploadForm #uploadButton {
+    width: 89px;
+}
+
+#uploading {
+    display: none;
+}
