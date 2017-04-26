@@ -49,13 +49,7 @@ li.dropdown > ul > li > a {
 
 
 
-@media (max-width: 768px) {
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-        color: white;
-        background-color: #b30014;
-    }
-}
+
 
 .navbar-default .navbar-toggle .icon-bar {
     background-color: #ca0012;
@@ -183,9 +177,19 @@ footer ul a:hover {
     #pageContent {
     width: 97%;
     padding: 10px 10px;
+    }
+
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: white;
+        background-color: #b30014;
+    }
+
+    #videoInfo input, #videoInfo textarea {
+        width: 100% !important;
+    }
 }
 
-}
 @media (max-width: 840px) {
     #footerLogo {
         padding-top: 4px;
@@ -271,7 +275,7 @@ input.ng-invalid.ng-dirty {
 
 #videoInfo div {
     padding: 5px 0px;
-    width: 40%;
+    width: 100%;
     color: #999;
 }
 
@@ -280,6 +284,5 @@ input.ng-invalid.ng-dirty {
 }
 
 #videoInfo input, #videoInfo textarea {
-    width: 100%;
-    
+    width: 40%;
 }
