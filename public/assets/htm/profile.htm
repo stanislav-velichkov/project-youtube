@@ -20,13 +20,14 @@
                 </div>
                 <div id="videoInfo">
                     <div>
-                        <input type="text" name="title" placeholder="Add Title" />
+                        <input type="text" id="title" name="title" placeholder="Add Title"/>
                     </div>
                     <div>
-                        <textarea name="description" rows="5">Add Description</textarea>
+                        <textarea name="description" id="description" rows="5" placeholder="Add Description"></textarea>
                     </div>
                     <div>
-                        <textarea name="tags" rows="5">Add Tags Separated By Comma (music, sports, news... )</textarea>
+                        <textarea name="tags" id="tags" rows="5"
+                                  placeholder="Add Tags Separated By Comma (music, sports, news... )"></textarea>
                     </div>
                 </div>
                 <input type='submit' id="uploadButton" value='Upload' />
@@ -41,50 +42,4 @@
         </div>
     </div>
 </div>
-
-<script>
-        var isValid = false;
-
-        $("#uploadForm").change(function () {
-            $("#failure").html('');
-            $("#success").html('');
-
-
-            var fileExtension = ['mp4', 'mov', 'wmv', 'flv', 'avi', 'webm'];
-            if ($.inArray($('#uploadVideo').val().split('.').pop().toLowerCase(), fileExtension) == -1) {
-                $("#failure").html('File Extension not Allowed! <br/>(' + fileExtension + ' only.)');
-                isValid = false;
-            } else if ($('#uploadVideo').prop('files')[0].size > 100 * 1024 * 1024) {
-                isValid = false;
-                $("#failure").html('File too big! (Max Size: 100MB)');
-            } else {
-                isValid = true;
-            }
-        });
-
-
-        $('#uploadForm').submit(
-            function (e) {
-                //validate
-
-                if (isValid) {
-                    $('#uploading').css('display', 'inline-block');
-                    $.ajax({
-                        url: '/upload',
-                        type: 'POST',
-                        data: new FormData(this),
-                        processData: false,
-                        contentType: false,
-                        success: function (result) {
-                            console.log(result);
-                            $('#uploading').css('display', 'none');
-                            $("#success").html('File Uploaded');
-                        }
-
-                    });
-                }
-                e.preventDefault();
-            }
-        );
-
-    </script>
+<script src="assets/javascripts/MVC/uploadService.js"></script>
