@@ -262,4 +262,9 @@ input.ng-invalid.ng-dirty {
 
 #uploading {
     display: none;
+    padding: 10px 0px;
+}
+
+#uploading span {
+    padding: 10px;
 }
