@@ -12,6 +12,7 @@
     "express": "~4.15.2",
     "express-fileupload": "^0.1.2",
     "express-session": "^1.15.2",
+    "file-type": "^4.2.0",
     "hbs": "^4.0.1",
     "html": "^1.0.0",
     "mongo": "^0.1.0",
