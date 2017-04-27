@@ -3,9 +3,9 @@ var app = angular.module('mainApp');
 app.controller('sessionController', function ($scope, $http, $rootScope, $location) {
     $scope.currentSession = function () {
 
-        if (window.localStorage.getItem('user')) {
-            $rootScope.user = JSON.parse(window.localStorage.getItem('user'));
-            $rootScope.username = JSON.parse(window.localStorage.getItem('user')).username;
+        if (window.sessionStorage.getItem('user')) {
+            $rootScope.user = JSON.parse(window.sessionStorage.getItem('user'));
+            $rootScope.username = JSON.parse(window.sessionStorage.getItem('user')).username;
             menuToLoggedIn();
         } else {
 
