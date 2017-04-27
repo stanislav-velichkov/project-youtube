@@ -1,13 +1,19 @@
 var express = require('express');
 var router = express.Router();
-var ffprobe = require('ffprobe');
+// var ffprobe = require('ffprobe');
 var fs = require('fs');
 var nodeffprobe = require('node-ffprobe');
 var thumbler = require('video-thumb');
 // var ffmpegPath = require('../ffmpeg/').path;
-var ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
+
 var ffmpeg = require('fluent-ffmpeg');
+var ffprobe = require('@ffprobe-installer/ffprobe');
+
+var ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
+var ffprobePath = require('@ffprobe-installer/ffprobe').path;
+
 ffmpeg.setFfmpegPath(ffmpegPath);
+ffmpeg.setFfprobePath(ffprobePath);
 // var command = ffmpeg();
 console.log(ffmpeg.path, ffmpeg.version);
 
