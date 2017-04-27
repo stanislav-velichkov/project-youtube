@@ -3,7 +3,7 @@ var app = angular.module('mainApp');
 
 app.controller('logoutController', function ($scope, $http, $rootScope, $location) {
     $scope.logout = function () {
-        
+        window.localStorage.removeItem('user');
         $http.get('/logout')
             .then(function (response, status, headers, config) {
                 menuToLoggedout();

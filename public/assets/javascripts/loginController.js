@@ -18,6 +18,8 @@ app.controller('loginController', function ($scope, $http, $rootScope, $location
                     // Globalna promenliva za da mojete da q vijdate ot vsqkude v angular trqbva da q includnete i gore $rootScope
                     $rootScope.user = response.data;
                     $rootScope.username = $rootScope.user.username;
+                    window.localStorage.setItem('user', JSON.stringify(response.data));
+
                     console.log($rootScope.user);
                     $location.path("/");
                     menuToLoggedIn();
@@ -26,7 +28,7 @@ app.controller('loginController', function ($scope, $http, $rootScope, $location
                 }
 
             }, function (response, status, headers, config) {
-                alert('Server Error');
+                alert('DataBase Error');
             })
 
     }

@@ -9,7 +9,7 @@ router.post('/', function (req, res, next) {
     console.log(username + " e imeto a parolata e " + password);
     var db = req.db;
     var users = db.get('users');
-    users.find({username: username})
+    users.find({ username: username })
         .then(function (data) {
             if (data.length > 0) {
                 req.session.userId = data[0]._id;
@@ -19,14 +19,16 @@ router.post('/', function (req, res, next) {
                     var user = data[0];
                     console.log(user);
                     res.json(user);
+                } else {
+                    res.json('');
                 }
                 //req.session.userId
             } else {
                 res.json('');
             }
         }).catch(function (err) {
-        res.json(500, err);
-    });
+            res.json(500, err);
+        });
 });
 
 module.exports = router;

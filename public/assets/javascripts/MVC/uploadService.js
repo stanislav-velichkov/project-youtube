@@ -29,6 +29,7 @@ $('#uploadForm').submit(
                 data: new FormData(this),
                 processData: false,
                 contentType: false,
+                async: true,
                 success: function (result) {
                     console.log(result);
                     $('#uploading').css('display', 'none');
