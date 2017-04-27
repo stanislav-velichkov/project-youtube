@@ -176,7 +176,7 @@ footer ul a:hover {
 
     #pageContent {
     width: 97%;
-    padding: 10px 10px;
+    padding: 5px 0px;
     }
 
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
@@ -187,6 +187,10 @@ footer ul a:hover {
 
     #videoInfo input, #videoInfo textarea {
         width: 100% !important;
+    }
+
+    #videoPlayer {
+        padding: 5px 2px;
     }
 }
 
