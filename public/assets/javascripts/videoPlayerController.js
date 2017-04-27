@@ -5,7 +5,7 @@ app.controller('HomeCtrl',
         this.config = {
             sources: [
                 {
-                    src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.mp4"),
+                    src: $sce.trustAsResourceUrl("/assets/videos/kuche.mp4"),
                     type: "video/mp4"
                 },
                 {

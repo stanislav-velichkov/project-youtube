@@ -23,10 +23,10 @@ router.post('/', function (req, res) {
     var tags = req.body.tags;
     tags = tags.split(' ');
 
-    var video = new Video(req.body.title, req.body.description, tags, './uploads/' + req.body.title, userId);
+    var video = new Video(req.body.title, req.body.description, tags, './public/assets/videos/' + req.body.title, userId);
     videos.insert(video);
     // Use the mv() method to place the file somewhere on your server
-    uploadVideo.mv('./uploads/' + req.body.title, function (err) {
+    uploadVideo.mv('./public/assets/videos/' + req.body.title, function (err) {
         if (err)
             return res.status(500).send(err);
 
