@@ -1,21 +1,25 @@
 var express = require('express');
 var router = express.Router();
-var ffmpeg = require('fluent-ffmpeg');
 var ffprobe = require('ffprobe');
 var fs = require('fs');
 var nodeffprobe = require('node-ffprobe');
 var thumbler = require('video-thumb');
+// var ffmpegPath = require('../node_modules/fluent-ffmpeg/lib/fluent-ffmpeg').path;
+var ffmpeg = require('fluent-ffmpeg');
+// ffmpeg.setFfmpegPath(ffmpegPath);
+var command = ffmpeg();
 
 
 router.post('/', function (req, res) {
 
-    function Video(fileName, title, description, tags, src, userId) {
+    function Video(fileName, title, description, tags, src, userId, screenshot) {
         this.fileName = fileName;
         this.title = title;
         this.description = description;
         this.tags = tags;
         this.src = src;
         this.userId = userId;
+        this.screenshot = screenshot;
     }
 
     var db = req.db;
@@ -42,32 +46,20 @@ router.post('/', function (req, res) {
         res.send('File uploaded!');
     });
 
-    thumbler.extract('./public/assets/videos/' + fileName, fileName + '.png', '00:00:05', '200x125', function (image) {
-        console.log(image);
-        console.log('Screenshot');
-    });
+    // thumbler.extract('./public/assets/videos/' + fileName, fileName + '.png', '00:00:05', '200x125', function (image) {
+    //     console.log(image);
+    //     console.log('Screenshot');
+    // });
 
-    // nodeFF('./public/assets/videos/' + fileName)
-    //     .screenshots({
-    //         timestamps: [30.5, '50%', '01:10.123'],
-    //         filename: fileName + '.png',
-    //         folder: './public/assets/images/screenshots/',
-    //         size: '320x240'
-    //     });
+    ffmpeg('./public/assets/videos/' + fileName)
+        .screenshots({
+            timestamps: ['50%'],
+            filename: fileName + '.png',
+            folder: './public/assets/images/screenshots/',
+            size: '320x240'
+        });
 
-    // var proc = nodeFF('./public/assets/videos/' + fileName)
-    //     .on(fileName + '.png', function (filename) {
-    //         console.log('screenshots are ' + filename.join(', '));
-    //     })
-    //     .on('end', function () {
-    //         console.log('screenshots were saved');
-    //     })
-    //     .on('error', function (err) {
-    //         console.log('an error happened: ' + err.message);
-    //     })
-    //     .takeScreenshots({count: 2, timemarks: ['00:00:02.000', '6'], size: '150x100'}, './public/assets/images/screenshots/');
-
-    var video = new Video(fileName, req.body.title, req.body.description, tags, './public/assets/videos/' + fileName, userId);
+    var video = new Video(fileName, req.body.title, req.body.description, tags, './public/assets/videos/' + fileName, userId, './public/assets/images/screenshots/' + fileName + '.png');
     videos.insert(video);
 });
 
