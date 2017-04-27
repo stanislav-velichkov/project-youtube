@@ -4,10 +4,12 @@ var ffprobe = require('ffprobe');
 var fs = require('fs');
 var nodeffprobe = require('node-ffprobe');
 var thumbler = require('video-thumb');
-// var ffmpegPath = require('../node_modules/fluent-ffmpeg/lib/fluent-ffmpeg').path;
+// var ffmpegPath = require('../ffmpeg/').path;
+var ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 var ffmpeg = require('fluent-ffmpeg');
-// ffmpeg.setFfmpegPath(ffmpegPath);
-var command = ffmpeg();
+ffmpeg.setFfmpegPath(ffmpegPath);
+// var command = ffmpeg();
+console.log(ffmpeg.path, ffmpeg.version);
 
 
 router.post('/', function (req, res) {
@@ -45,11 +47,6 @@ router.post('/', function (req, res) {
 
         res.send('File uploaded!');
     });
-
-    // thumbler.extract('./public/assets/videos/' + fileName, fileName + '.png', '00:00:05', '200x125', function (image) {
-    //     console.log(image);
-    //     console.log('Screenshot');
-    // });
 
     ffmpeg('./public/assets/videos/' + fileName)
         .screenshots({
