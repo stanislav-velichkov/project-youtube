@@ -14,6 +14,8 @@ var db = monk("mongodb://admin:admin@ds157439.mlab.com:57439/youtube-db");
 var passwordHash = require('password-hash');
 var readChunk = require('read-chunk');
 var fileType = require('file-type');
+var ffmpeg = require('fluent-ffmpeg');
+var ffprobe = require('ffprobe');
 
 var login = require('./routes/login');
 var register = require('./routes/register');
