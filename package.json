@@ -6,36 +6,26 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "@ffmpeg-installer/ffmpeg": "^1.0.12",
-    "@ffprobe-installer/ffprobe": "^1.0.7",
     "body-parser": "~1.17.1",
     "bower": "^1.8.0",
-    "cloudinary": "^1.8.0",
     "cookie-parser": "~1.4.3",
     "crypto": "0.0.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
     "express-fileupload": "^0.1.2",
     "express-session": "^1.15.2",
-    "ffprobe": "^1.1.0",
     "file-type": "^4.2.0",
-    "fluent-ffmpeg": "^2.1.2",
     "fs": "0.0.1-security",
     "hbs": "^4.0.1",
     "html": "^1.0.0",
     "mongo": "^0.1.0",
     "monk": "^4.0.0",
     "morgan": "~1.8.1",
-    "node-ffmpeg": "0.0.0",
-    "node-ffprobe": "^1.2.2",
     "nodemon": "^1.11.0",
     "password-hash": "^1.2.2",
-    "quicklook-thumbnail": "^1.0.0",
     "read-chunk": "^2.0.0",
     "recordrtc": "^5.4.1",
     "serve-favicon": "~2.4.2",
-    "session": "^0.1.0",
-    "thumbbot": "^0.4.1",
-    "video-thumb": "0.0.3"
+    "session": "^0.1.0"
   }
 }
