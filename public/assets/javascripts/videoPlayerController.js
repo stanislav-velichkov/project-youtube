@@ -1,21 +1,14 @@
 var app = angular.module('mainApp');
 
 app.controller('HomeCtrl',
-    ["$sce", function ($sce) {
+    ["$sce", function ($sce, $rootScope) {
         this.config = {
             sources: [
                 {
-                    src: $sce.trustAsResourceUrl("/assets/videos/kuche.mp4"),
+                    src: $sce.trustAsResourceUrl($rootScope.currentVideo.src),
                     type: "video/mp4"
-                },
-                {
-                    src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.webm"),
-                    type: "video/webm"
-                },
-                {
-                    src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.ogg"),
-                    type: "video/ogg"
                 }
+                
             ],
             tracks: [
                 {
@@ -28,7 +21,7 @@ app.controller('HomeCtrl',
             ],
             theme: "assets/bower_components/videogular-themes-default/videogular.css",
             plugins: {
-                poster: "http://www.videogular.com/assets/images/videogular.png"
+                poster: $rootScope.currentVideo.snapshot
             }
         };
     }]);
