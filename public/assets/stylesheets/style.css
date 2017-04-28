@@ -61,6 +61,7 @@ li.dropdown > ul > li > a {
 }
 
 #pageContent {
+    display: block;
     width: 90%;
     margin: 60px auto;
     font-size: 1.2em;
@@ -231,7 +232,12 @@ footer ul a:hover {
     text-align: center;
 }
 
-#profile #failure {
+#profile #videoFailure {
+    color: #b30014;
+    font-style: oblique;
+}
+
+#profile #posterFailure {
     color: #b30014;
     font-style: oblique;
 }

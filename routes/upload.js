@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+
 router.post('/', function (req, res) {
 
     function Video(fileName, title, description, tags, src, userId, snapshot) {
@@ -16,11 +17,12 @@ router.post('/', function (req, res) {
     var db = req.db;
     var videos = db.get('videos');
 
-    if (!req.files)
+    if (!req.files.uploadVideo)
         return res.status(400).send('No files were uploaded.');
 
     // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
     let uploadVideo = req.files.uploadVideo;
+    let uploadPoster = req.files.poster;
 
     var userId = req.session.userId;
     var tags = req.body.tags;
@@ -31,13 +33,26 @@ router.post('/', function (req, res) {
     // Use the mv() method to place the file somewhere on your server
     uploadVideo.mv('./public/assets/videos/' + fileName, function (err) {
 
+        // if (err)
+        //     return res.status(500).send(err);
+
+        // res.send('File uploaded!');
+    });
+
+    var posterName = req.body.title + userId + Date.now() + '.png'
+    uploadPoster.mv('./public/assets/images/screenshots/' + posterName, function (err) {
+
         if (err)
             return res.status(500).send(err);
 
         res.send('File uploaded!');
     });
 
-    var video = new Video(fileName, req.body.title, req.body.description, tags, './public/assets/videos/' + fileName, userId, req.body.snapshot);
+   
+
+
+
+    var video = new Video(fileName, req.body.title, req.body.description, tags, './assets/videos/' + fileName, userId, './assets/images/screenshots/' + posterName);
     videos.insert(video);
 });
 

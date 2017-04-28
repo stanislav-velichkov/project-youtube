@@ -20,6 +20,7 @@ var register = require('./routes/register');
 var currentSession = require('./routes/session');
 var logout = require('./routes/logout');
 var upload = require('./routes/upload');
+var videos = require('./routes/allVideos');
 
 var app = express();
 app.use(function (req, resp, next) {
@@ -46,6 +47,7 @@ app.use('/register', register);
 app.use('/session', currentSession);
 app.use('/logout', logout);
 app.use('/upload', upload);
+app.use('/allVideos', videos);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
