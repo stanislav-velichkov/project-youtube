@@ -3,13 +3,14 @@ var router = express.Router();
 
 router.post('/', function (req, res) {
 
-    function Video(fileName, title, description, tags, src, userId) {
+    function Video(fileName, title, description, tags, src, userId, snapshot) {
         this.fileName = fileName;
         this.title = title;
         this.description = description;
         this.tags = tags;
         this.src = src;
         this.userId = userId;
+        this.snapshot = snapshot;
     }
 
     var db = req.db;
@@ -24,7 +25,7 @@ router.post('/', function (req, res) {
     var userId = req.session.userId;
     var tags = req.body.tags;
     tags = tags.split(' ');
-console.log(req.body);
+
     var fileName = req.body.title + userId + Date.now() + '.mp4';
 
     // Use the mv() method to place the file somewhere on your server
@@ -36,7 +37,7 @@ console.log(req.body);
         res.send('File uploaded!');
     });
 
-    var video = new Video(fileName, req.body.title, req.body.description, tags, './public/assets/videos/' + fileName, userId);
+    var video = new Video(fileName, req.body.title, req.body.description, tags, './public/assets/videos/' + fileName, userId, req.body.snapshot);
     videos.insert(video);
 });
 

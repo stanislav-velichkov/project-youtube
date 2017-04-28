@@ -14,11 +14,12 @@ $("#uploadForm").change(function () {
     } else {
         isValid = true;
 
+
         //Generating a snapshot
 
         // step 1
-        var canvas_elem = $( '<canvas class=snapshot_generator></canvas>' ).appendTo(document.body)[0];
-        var $video = $( '<video muted class=snapshot_generator></video>' ).appendTo(document.body);
+        var canvas_elem = $('<canvas class=snapshot_generator></canvas>').appendTo(document.body)[0];
+        var $video = $('<video muted class=snapshot_generator></video>').appendTo(document.body);
         //-----1------
 
         //step 2
@@ -26,11 +27,11 @@ $("#uploadForm").change(function () {
         console.log($('#uploadVideo').prop('files')[0]);
 
         var step_2_events_fired = 0;
-        $video.one('loadedmetadata loadeddata suspend', function() {
+        $video.one('loadedmetadata loadeddata suspend', function () {
             if (++step_2_events_fired == 3) {
 
                 // step 3
-                $video.one('seeked', function() {
+                $video.one('seeked', function () {
 
                     // step 4
                     canvas_elem.height = this.videoHeight;
@@ -39,8 +40,8 @@ $("#uploadForm").change(function () {
                     var snapshot = canvas_elem.toDataURL();
 
                     //snapshot - the image (base64)
-                    console.log(snapshot);
-
+                    // console.log(snapshot);
+                    $('#snapshotArea').val(snapshot);
                     // // append snapshot to body
                     // var thumb = document.createElement('img');
                     // thumb.setAttribute('src', snapshot);
@@ -59,7 +60,6 @@ $("#uploadForm").change(function () {
         }).prop('src', url);
 
         //-----2------
-
 
 
     }
