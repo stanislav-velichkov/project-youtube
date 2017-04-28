@@ -14,9 +14,8 @@ $("#uploadForm").change(function () {
     } else {
         isValid = true;
 
-
         //Generating a snapshot
-        
+
         // step 1
         var canvas_elem = $( '<canvas class=snapshot_generator></canvas>' ).appendTo(document.body)[0];
         var $video = $( '<video muted class=snapshot_generator></video>' ).appendTo(document.body);
@@ -32,13 +31,13 @@ $("#uploadForm").change(function () {
 
                 // step 3
                 $video.one('seeked', function() {
-                    
+
                     // step 4
                     canvas_elem.height = this.videoHeight;
                     canvas_elem.width = this.videoWidth;
                     canvas_elem.getContext('2d').drawImage(this, 0, 0);
                     var snapshot = canvas_elem.toDataURL();
-                    
+
                     //snapshot - the image (base64)
                     console.log(snapshot);
 
@@ -46,7 +45,7 @@ $("#uploadForm").change(function () {
                     // var thumb = document.createElement('img');
                     // thumb.setAttribute('src', snapshot);
                     // document.body.appendChild(thumb);
-                    
+
 
                     // Remove elements as they are no longer needed
                     $video.remove();
@@ -61,7 +60,7 @@ $("#uploadForm").change(function () {
 
         //-----2------
 
-        
+
 
     }
 });

@@ -1,32 +1,15 @@
 var express = require('express');
 var router = express.Router();
-// var ffprobe = require('ffprobe');
-var fs = require('fs');
-var nodeffprobe = require('node-ffprobe');
-var thumbler = require('video-thumb');
-// var ffmpegPath = require('../ffmpeg/').path;
-var ffprobe = require('@ffprobe-installer/ffprobe');
-var ffprobePath = require('@ffprobe-installer/ffprobe').path;
-
-var ffmpeg = require('fluent-ffmpeg');
-var ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
-ffmpeg.setFfprobePath(ffprobePath);
-ffmpeg.setFfmpegPath(ffmpegPath);
-
-// var command = ffmpeg();
-console.log(ffmpeg.path, ffmpeg.version);
-
 
 router.post('/', function (req, res) {
 
-    function Video(fileName, title, description, tags, src, userId, screenshot) {
+    function Video(fileName, title, description, tags, src, userId) {
         this.fileName = fileName;
         this.title = title;
         this.description = description;
         this.tags = tags;
         this.src = src;
         this.userId = userId;
-        this.screenshot = screenshot;
     }
 
     var db = req.db;
@@ -41,7 +24,7 @@ router.post('/', function (req, res) {
     var userId = req.session.userId;
     var tags = req.body.tags;
     tags = tags.split(' ');
-
+console.log(req.body);
     var fileName = req.body.title + userId + Date.now() + '.mp4';
 
     // Use the mv() method to place the file somewhere on your server
@@ -53,15 +36,7 @@ router.post('/', function (req, res) {
         res.send('File uploaded!');
     });
 
-    ffmpeg('./public/assets/videos/' + fileName)
-        .screenshots({
-            timestamps: ['50%'],
-            filename: fileName + '.png',
-            folder: './public/assets/images/screenshots/',
-            size: '320x240'
-        });
-
-    var video = new Video(fileName, req.body.title, req.body.description, tags, './public/assets/videos/' + fileName, userId, './public/assets/images/screenshots/' + fileName + '.png');
+    var video = new Video(fileName, req.body.title, req.body.description, tags, './public/assets/videos/' + fileName, userId);
     videos.insert(video);
 });
 
