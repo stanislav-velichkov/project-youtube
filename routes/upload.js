@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var fs = require('fs');
+var resizeImg = require('resize-img');
 
 router.post('/', function (req, res) {
 
@@ -39,8 +41,14 @@ router.post('/', function (req, res) {
         // res.send('File uploaded!');
     });
 
-    var posterName = req.body.title + userId + Date.now() + '.png'
+    var posterName = req.body.title + userId + Date.now() + '.png';
+
+
     uploadPoster.mv('./public/assets/images/screenshots/' + posterName, function (err) {
+
+        resizeImg(fs.readFileSync('./public/assets/images/screenshots/' + posterName), { width: 600, height: 360 }).then(buf => {
+            fs.writeFileSync('./public/assets/images/screenshots/' + posterName, buf);
+        });
 
         if (err)
             return res.status(500).send(err);
@@ -48,7 +56,7 @@ router.post('/', function (req, res) {
         res.send('File uploaded!');
     });
 
-   
+
 
 
 
