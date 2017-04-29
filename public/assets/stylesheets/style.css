@@ -70,6 +70,8 @@ li.dropdown > ul > li > a {
     padding: 10px 30px;
 }
 
+
+
 body {
     text-align: center;
 }
@@ -186,7 +188,7 @@ footer ul a:hover {
 
     #pageContent {
     width: 97%;
-    padding: 5px 0px;
+    padding: 10px 0px;
     }
 
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
@@ -202,6 +204,16 @@ footer ul a:hover {
     #videoPlayer {
         padding: 0px;
     }
+
+    #title {
+        padding: 0px 10px;
+    }
+
+    #related {
+        border-left: none;
+        border-top: 1px solid #e7e7e7;
+    }
+
 }
 
 @media (max-width: 840px) {
@@ -319,4 +331,35 @@ input.ng-invalid.ng-dirty {
   top: 0;
   width: 1px;
   z-index: -1;
+}
+
+#comments, #description {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+
+#description {
+    background-color: #f8f8f8;
+    border: 1px solid #e7e7e7;
+}
+
+#related {
+    border-left: 1px solid #e7e7e7;
+    margin: 20px 0px;
+}
+
+#videoPlayer{
+    display: inline-block;
+}
+
+#likes {
+    padding: 10px;
+    padding-bottom: 0px;
+    display: block;
+    width: 100%;
+}
+
+#videoLikes {
+    float:right;
 }

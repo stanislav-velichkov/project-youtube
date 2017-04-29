@@ -1,33 +1,59 @@
 <div ng-controller="HomeCtrl as controller">
     <div class="row">
 
+        <div class="row">
+            <div id="videoPlayer" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                <div class="row">
 
-        <div id="videoPlayer" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-            <videogular vg-theme="controller.config.theme" vg-auto-play="ctrl.config.autoPlay">
-                <vg-media vg-src="controller.config.sources" vg-tracks="controller.config.tracks">
-            </vg-media>
-            <vg-controls>
-                <vg-play-pause-button></vg-play-pause-button>
-                <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
-                <vg-scrub-bar>
-                    <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-                </vg-scrub-bar>
-                <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
-                <vg-volume>
-                    <vg-mute-button></vg-mute-button>
-                    <vg-volume-bar></vg-volume-bar>
-                </vg-volume>
-                <vg-fullscreen-button></vg-fullscreen-button>
-            </vg-controls>
+                    <div id="title">
+                        <h2>Title</h2>
+                    </div>
+                    <videogular vg-theme="controller.config.theme" vg-auto-play="ctrl.config.autoPlay">
+                        <vg-media vg-src="controller.config.sources" vg-tracks="controller.config.tracks">
+                        </vg-media>
+                        <vg-controls>
+                            <vg-play-pause-button></vg-play-pause-button>
+                            <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+                            <vg-scrub-bar>
+                                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                            </vg-scrub-bar>
+                            <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+                            <vg-volume>
+                                <vg-mute-button></vg-mute-button>
+                                <vg-volume-bar></vg-volume-bar>
+                            </vg-volume>
+                            <vg-fullscreen-button></vg-fullscreen-button>
+                        </vg-controls>
 
-            <vg-overlay-play></vg-overlay-play>
-            <vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
-            </videogular>
-        </div>
-
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-            <p> Other videos </p>
+                        <vg-overlay-play></vg-overlay-play>
+                        <vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
+                    </videogular>
+                </div>
+                <div class="row">
+                    <div class="row">
+                        <div id="likes">
+                            <span id="videoUser">Username</span>
+                            <span id="videoLikes"><i class="fa fa-thumbs-up" aria-hidden="true"></i> Likes</span>
+                        </div>
+                        <div id="description">
+                            <h4>Description</h4>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est eius nobis ducimus quos. Doloribus a, quidem nemo et aliquam
+                            aperiam molestiae dolorem deleniti culpa quos provident possimus, ea impedit dolor.
+                        </div>
+                    </div>
+                    <div class="row" id="comments">
+                        <h4>Comments</h4>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt fuga adipisci aut numquam sapiente aspernatur eos quia
+                        commodi? Veniam quos natus unde optio repellat ad reiciendis, animi necessitatibus pariatur eos.
+                    </div>
+                </div>
             </div>
+
+
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" id="related">
+                <h4>Related</h4>
+            </div>
+        </div>
 
 
 
