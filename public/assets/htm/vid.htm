@@ -1,6 +1,6 @@
 <div ng-controller="currentVideoController">
-    <a id="{{data._id}}" href="#" ng-click="getVideo()"><img ng-src="{{data.snapshot}}" width="100%" height="auto">
+    <a id="{{data._id}}" href="#" ng-click="getVideo($event)"><img ng-src="{{data.snapshot}}" width="100%"
+                                                                   height="auto">
         <h5>{{data.title}}</h5>
-        <p id="videoID">{{data._id}}</p>
     </a>
 </div>

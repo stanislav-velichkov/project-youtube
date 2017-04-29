@@ -2,9 +2,9 @@ var app = angular.module('mainApp');
 
 
 app.controller('currentVideoController', function ($scope, $http, $rootScope, $location) {
-    $scope.getVideo = function () {
+    $scope.getVideo = function ($event) {
 
-        var id = $('#videoID').text()
+        var id = $event.currentTarget.getAttribute('id');
         var indata = {'_id': id};
         console.log(indata);
         // console.log(indata);
