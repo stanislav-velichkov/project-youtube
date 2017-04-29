@@ -374,3 +374,7 @@ input.ng-invalid.ng-dirty {
     margin: auto;
     overflow: hidden;
 }
+
+.thumbnails {
+    padding-top: 3px;
+}
