@@ -21,8 +21,9 @@ app.controller('HomeCtrl', function ($sce, $rootScope) {
             }
         ],
         theme: "assets/bower_components/videogular-themes-default/videogular.css",
+        autoPlay: true,
         plugins: {
-            poster: $rootScope.currentVideo.snapshot
+            // poster: $rootScope.currentVideo.snapshot
         }
     };
 });

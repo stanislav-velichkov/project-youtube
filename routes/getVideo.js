@@ -10,12 +10,12 @@ router.post('/', function (req, res, next) {
     videos.find({_id: id}, {})
         .then(function (data) {
             console.log('Zaqvkata rabiti');
-                res.json(data);
+            res.json(data);
             console.log(data);
 
         }).catch(function (err) {
-            res.json(500, err);
-        });
+        res.json(500, err);
+    });
 });
 
 module.exports = router;
