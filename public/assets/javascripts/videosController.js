@@ -14,7 +14,6 @@ app.directive('vid', function() {
 app.controller('videosController', function ($scope, $http, $rootScope, $location) {
         
         $http.get('/allVideos')
-        
             .then(function (response, status, headers, config) {
                 console.log('front end getting videos');
                 if (response.data != '') {

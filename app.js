@@ -21,6 +21,7 @@ var currentSession = require('./routes/session');
 var logout = require('./routes/logout');
 var upload = require('./routes/upload');
 var videos = require('./routes/allVideos');
+var getVideo = require('./routes/getVideo');
 
 var app = express();
 app.use(function (req, resp, next) {
@@ -48,6 +49,7 @@ app.use('/session', currentSession);
 app.use('/logout', logout);
 app.use('/upload', upload);
 app.use('/allVideos', videos);
+app.use('/getVideo', getVideo);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

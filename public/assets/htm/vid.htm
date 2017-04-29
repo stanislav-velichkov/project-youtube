@@ -1,37 +1,6 @@
-<div ng-data-controller="currentVideoController">
-    <a id="{{data._id}}"  href="#!/video" ng-click="getVideo()"><img ng-src="{{data.snapshot}}" width="100%" height="auto">
+<div ng-controller="currentVideoController">
+    <a id="{{data._id}}" href="#" ng-click="getVideo()"><img ng-src="{{data.snapshot}}" width="100%" height="auto">
         <h5>{{data.title}}</h5>
+        <p id="videoID">{{data._id}}</p>
     </a>
 </div>
-
-
-<script>
-var app = angular.module('mainApp');
-
-
-app.controller('currentVideoController', function ($scope, $http, $rootScope, $location) {
-        $scope.getVideo = function () {
-            console.log('getting video');
-        var indata = {{{data._id}}};
-        $http.get('/getVideo', indata)
-            .then(function (response, status, headers, config) {
-
-                console.log(typeof (response.data));
-
-                    $rootScope.currentVideo = response.data;
-
-                    console.log($rootScope.currentVideo);
-                    $location.path("/video");
-
-
-            }, function (response, status, headers, config) {
-                alert('DataBase Error');
-            })
-
-    }
-});
-
-
-
-
-</script>
