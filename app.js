@@ -25,6 +25,7 @@ var upload = require('./routes/upload');
 var videos = require('./routes/allVideos');
 var getVideo = require('./routes/getVideo');
 var updateVideo = require('./routes/updateVideo');
+var comment = require('./routes/comment');
 
 var app = express();
 app.use(function (req, resp, next) {
@@ -54,6 +55,7 @@ app.use('/upload', upload);
 app.use('/allVideos', videos);
 app.use('/getVideo', getVideo);
 app.use('/updateVideo', updateVideo);
+app.use('/comment', comment);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
