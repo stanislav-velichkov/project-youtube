@@ -20,6 +20,7 @@ app.controller('currentVideoController', function ($scope, $http, $rootScope, $l
                 $rootScope.currentVideo = response.data[0];
                 console.log("Eto go obekta: ");
                 console.log($rootScope.currentVideo);
+                $rootScope.currentVideo.tags = $rootScope.currentVideo.tags.join(' ');
                 $location.path("/video/" + window.sessionStorage.getItem('currentVideo'));
 
 

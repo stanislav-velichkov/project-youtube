@@ -22,6 +22,7 @@ app.controller('loadVideoController', function ($scope, $http, $rootScope, $loca
             success: function (result) {
                 console.log(result);
                 $rootScope.currentVideo = result[0];
+                $rootScope.currentVideo.tags = $rootScope.currentVideo.tags.join(' ');
             }
         });
 
