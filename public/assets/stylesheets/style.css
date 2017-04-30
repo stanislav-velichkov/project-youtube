@@ -393,8 +393,8 @@ input.ng-invalid.ng-dirty {
     opacity: 0.7;
 }
 
-.play{
-    width:100%;
+.play {
+    width: 100%;
     height: auto;
     background-position: center;
     opacity: 1;
