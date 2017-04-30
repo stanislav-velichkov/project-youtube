@@ -4,4 +4,5 @@ function User(username = '', email = '', password = '') {
     this.password = password;
     this.likes = [];
     this.watchLater = [];
+    this.history = [];
 }

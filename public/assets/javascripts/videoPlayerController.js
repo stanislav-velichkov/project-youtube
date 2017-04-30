@@ -13,13 +13,25 @@ app.controller('HomeCtrl', function ($sce, $rootScope, $scope, $http) {
         autoPlay: true,
     };
     $scope.like = function () {
-        $rootScope.currentVideo.likes += 1;
 
-        $http.post('/updateVideo', $rootScope.currentVideo)
-            .then(function (response, status, headers, config) {
+        if ($rootScope.username != undefined && $rootScope.user.likes.indexOf($rootScope.currentVideo._id) == -1) {
 
-            }, function (response, status, headers, config) {
-                // alert('Session Error');
-            });
+            $rootScope.currentVideo.likes += 1;
+            $rootScope.user.likes.push($rootScope.currentVideo._id);
+
+            $http.post('/updateUser', $rootScope.user)
+                .then(function (response, status, headers, config) {
+
+                }, function (response, status, headers, config) {
+                    // alert('Session Error');
+                });
+
+            $http.post('/updateVideo', $rootScope.currentVideo)
+                .then(function (response, status, headers, config) {
+
+                }, function (response, status, headers, config) {
+                    // alert('Session Error');
+                });
+        }
     }
 });

@@ -11,11 +11,17 @@ router.post('/', function (req, res, next) {
         .then(function (data) {
             console.log('Zaqvkata rabiti');
             res.json(data);
-            console.log(data);
 
         }).catch(function (err) {
         res.json(500, err);
     });
+
+    videos.find({_id: id}, {})
+        .then(function (data) {
+            var views = data[0].views + (1 / 4);
+            console.log(views);
+            videos.findOneAndUpdate({_id: id}, {$set: {views: views}})
+        })
 });
 
 module.exports = router;

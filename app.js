@@ -26,6 +26,7 @@ var videos = require('./routes/allVideos');
 var getVideo = require('./routes/getVideo');
 var updateVideo = require('./routes/updateVideo');
 var comment = require('./routes/comment');
+var updateUser = require('./routes/updateUser');
 
 var app = express();
 app.use(function (req, resp, next) {
@@ -56,7 +57,7 @@ app.use('/allVideos', videos);
 app.use('/getVideo', getVideo);
 app.use('/updateVideo', updateVideo);
 app.use('/comment', comment);
-
+app.use('/updateUser', updateUser);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
