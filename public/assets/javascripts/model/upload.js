@@ -6,7 +6,7 @@ $("#uploadVideo").change(function () {
 
     $("#success").html('');
 
-    var videoFileExtension = ['mp4', 'mov', 'wmv', 'flv', 'avi', 'webm'];
+    var videoFileExtension = ['mp4', 'ogg', 'webm'];
     if ($.inArray($('#uploadVideo').val().split('.').pop().toLowerCase(), videoFileExtension) == -1) {
         $("#videoFailure").html('File Extension not Allowed! <br/>(' + videoFileExtension + ' only.)');
         isValidVideo = false;
