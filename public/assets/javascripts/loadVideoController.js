@@ -7,7 +7,6 @@ app.controller('loadVideoController', function ($scope, $http, $rootScope, $loca
     console.log('ID ***************' + id);
     console.log('refresh');
     var indata = JSON.stringify({'_id': id});
-    console.log(indata);
 
     $.ajax({
         url: '/getVideo',
@@ -18,12 +17,10 @@ app.controller('loadVideoController', function ($scope, $http, $rootScope, $loca
         dataType: 'json',
         async: false,
         success: function (result) {
-            console.log(result);
 
             $rootScope.currentVideo = result[0];
             if ($rootScope.currentVideo) {
                 $rootScope.currentVideo.tags = $rootScope.currentVideo.tags.join(' ');
-
                 var comments = $rootScope.currentVideo.comments;
                 if($rootScope.username) {
                     $('#addCommentForm').css('display', 'inline-block');
@@ -32,9 +29,20 @@ app.controller('loadVideoController', function ($scope, $http, $rootScope, $loca
                 }
                 $('#showComments').html('');
                 comments.forEach(function (comment) {
+
                     $('#showComments').append("<div class='singleCommentDiv'><div><span>" + comment.user + "</span><span class='commentDate'>" + comment.date + "</span></div></br><div>" + comment.comment + "</div></div>");
                 })
+
+                    
             }
+
+            $scope.history = function ($event) {
+                var id = $event.currentTarget.getAttribute('id');
+                if ($rootScope.username != undefined && $rootScope.user.history.indexOf(id) == -1) {
+                    $rootScope.user.history.push(id);
+                    $http.post('/updateUser', $rootScope.user);
+                }
+            };
         }
     });
 });
