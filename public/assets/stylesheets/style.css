@@ -380,3 +380,11 @@ input.ng-invalid.ng-dirty {
 .thumbnails {
     padding-top: 3px;
 }
+
+#addCommentForm, #addCommentForm #newComment, #newCommentArea{
+    width: 100%;
+}
+
+#addCommentButton {
+    float: right;
+}

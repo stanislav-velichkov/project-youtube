@@ -43,10 +43,16 @@
                             <span>Tags: </span><span>{{currentVideo.tags}}</span>
                         </div>
                     </div>
-                    <div class="row" id="comments">
+                    <div class="row" id="comments" ng-controller="addCommentController">
                         <h4>Comments</h4>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt fuga adipisci aut numquam sapiente aspernatur eos quia
-                        commodi? Veniam quos natus unde optio repellat ad reiciendis, animi necessitatibus pariatur eos.
+                        <form id="addCommentForm" ng-submit="addComment()">
+                            <textarea name="addComment" id="newCommentArea" placeholder="Add your comment here" rows="3"></textarea>
+                            <input type="submit" id="addCommentButton" value="Add comment" />
+                        </form>
+                        <div id="showComments">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt fuga adipisci aut numquam sapiente
+                            aspernatur eos quia commodi? Veniam quos natus unde optio repellat ad reiciendis, animi necessitatibus
+                            pariatur eos.
+                        </div>
                     </div>
                 </div>
             </div>
