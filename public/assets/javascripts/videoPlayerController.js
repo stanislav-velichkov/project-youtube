@@ -1,7 +1,6 @@
 var app = angular.module('mainApp');
 
-app.controller('HomeCtrl', function ($sce, $rootScope) {
-
+app.controller('HomeCtrl', function ($sce, $rootScope, $scope, $http) {
     console.log($rootScope.currentVideo);
     this.config = {
         sources: [
@@ -9,21 +8,18 @@ app.controller('HomeCtrl', function ($sce, $rootScope) {
                 src: $sce.trustAsResourceUrl($rootScope.currentVideo.src),
                 type: "video/mp4"
             }
-
-        ],
-        tracks: [
-            {
-                src: "http://www.videogular.com/assets/subs/pale-blue-dot.vtt",
-                kind: "subtitles",
-                srclang: "en",
-                label: "English",
-                default: ""
-            }
         ],
         theme: "assets/bower_components/videogular-themes-default/videogular.css",
         autoPlay: true,
-        plugins: {
-            // poster: $rootScope.currentVideo.snapshot
-        }
     };
+    $scope.like = function () {
+        $rootScope.currentVideo.likes += 1;
+
+        $http.post('/updateVideo', $rootScope.currentVideo)
+            .then(function (response, status, headers, config) {
+
+            }, function (response, status, headers, config) {
+                // alert('Session Error');
+            });
+    }
 });

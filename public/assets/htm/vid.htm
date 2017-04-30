@@ -1,5 +1,5 @@
-<div ng-controller="currentVideoController">
-    <a id="{{data._id}}" href="#" ng-click="getVideo($event)">
+<div ng-controller="loadVideoController">
+    <a ng-href="#!/video/{{data._id}}">
         <img ng-src="{{data.snapshot}}" width="100%" height="auto">
         <h5>{{data.title}}</h5>
     </a>

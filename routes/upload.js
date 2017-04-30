@@ -14,6 +14,7 @@ router.post('/', function (req, res) {
         this.src = src;
         this.userId = userId;
         this.snapshot = snapshot;
+        this.likes = 0;
     }
 
     var db = req.db;
