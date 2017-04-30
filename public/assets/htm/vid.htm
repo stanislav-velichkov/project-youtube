@@ -1,6 +1,8 @@
 <div ng-controller="loadVideoController">
-    <a id="{{data._id}}" ng-href="#!/video/{{data._id}}" ng-click="history($event)">
-        <img ng-src="{{data.snapshot}}" width="100%" height="auto">
+    <a class="thumb" id="{{data._id}}" ng-href="#!/video/{{data._id}}" ng-click="history($event)">
+        <div class="play" ng-style="{'background-image': 'url(assets/images/thumbnail-play-button.png)'}">
+            <img ng-src="{{data.snapshot}}" width="100%" height="auto">
+        </div>
         <h5>{{data.title}}</h5>
     </a>
 </div>

@@ -35,8 +35,7 @@
                     <div class="row">
                         <div id="likes">
                             <span id="videoUser">Username</span>
-                            <span id="videoLikes"><a href="" ng-click="like()"><i class="fa fa-thumbs-up"
-                                                                                  aria-hidden="true"></i></a>Likes {{currentVideo.likes}}</span>
+                            <span id="videoLikes"><a href="" ng-click="like()"><i class="fa fa-thumbs-up" aria-hidden="true" style="font-size: 1.5em"></i></a> Likes {{currentVideo.likes}}</span>
                         </div>
                         <div id="videoDescription">
                             <h4>Description</h4>
@@ -45,7 +44,7 @@
                         </div>
                     </div>
                     <div class="row" id="comments" ng-controller="addCommentController">
-                        <h4>Comments</h4>
+                        <h4>Comments ({{currentVideo.comments.length}})</h4>
                         <form id="addCommentForm" ng-submit="addComment()">
                             <textarea name="addComment" id="newCommentArea" placeholder="Add your comment here"
                                       rows="3"></textarea>
