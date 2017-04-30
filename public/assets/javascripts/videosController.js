@@ -19,8 +19,6 @@ app.controller('videosController', function ($scope, $http, $rootScope, $locatio
                 if (response.data != '') {
                     $scope.videos = response.data;
                     console.log($scope.videos);
-                    $rootScope.currentVideo = response.data[0];
-                    console.log($rootScope.currentVideo);
                 } else {
                     alert('No videos found');
                 }

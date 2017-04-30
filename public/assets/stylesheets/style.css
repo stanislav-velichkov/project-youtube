@@ -337,13 +337,15 @@ input.ng-invalid.ng-dirty {
   z-index: -1;
 }
 
-#comments, #description {
+#comments, #videoDescription {
     margin-top: 10px;
     padding: 10px;
 }
 
 
-#description {
+#videoDescription {
+    display: inline-block;
+    width: 100%;
     background-color: #f8f8f8;
     border: 1px solid #e7e7e7;
 }

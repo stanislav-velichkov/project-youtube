@@ -6,7 +6,7 @@
                 <div class="row">
 
                     <div id="title">
-                        <h2>Title</h2>
+                        <h2>{{currentVideo.title}}</h2>
                     </div>
                     <div class="videogularContainer">
                         <videogular vg-theme="controller.config.theme" vg-auto-play="ctrl.config.autoPlay">
@@ -37,10 +37,9 @@
                             <span id="videoUser">Username</span>
                             <span id="videoLikes"><i class="fa fa-thumbs-up" aria-hidden="true"></i> Likes</span>
                         </div>
-                        <div id="description">
+                        <div id="videoDescription">
                             <h4>Description</h4>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est eius nobis ducimus quos. Doloribus a, quidem nemo et aliquam
-                            aperiam molestiae dolorem deleniti culpa quos provident possimus, ea impedit dolor.
+                            <p>{{currentVideo.description}}</p>
                         </div>
                     </div>
                     <div class="row" id="comments">

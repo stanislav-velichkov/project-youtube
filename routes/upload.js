@@ -41,26 +41,36 @@ router.post('/', function (req, res) {
         // res.send('File uploaded!');
     });
 
-    var posterName = req.body.title + userId + Date.now() + '.png';
+    
+    var posterSrc = '';
+    if (uploadPoster) {
+        console.log('uploadPoster found');
+        var posterName = req.body.title + userId + Date.now() + '.png';
 
+        uploadPoster.mv('./public/assets/images/screenshots/' + posterName, function (err) {
 
-    uploadPoster.mv('./public/assets/images/screenshots/' + posterName, function (err) {
+            resizeImg(fs.readFileSync('./public/assets/images/screenshots/' + posterName), { width: 600, height: 360 }).then(buf => {
+                fs.writeFileSync('./public/assets/images/screenshots/' + posterName, buf);
+            });
 
-        resizeImg(fs.readFileSync('./public/assets/images/screenshots/' + posterName), { width: 600, height: 360 }).then(buf => {
-            fs.writeFileSync('./public/assets/images/screenshots/' + posterName, buf);
+            if (err)
+                return res.status(500).send(err);
+
+            res.send('File uploaded!');
         });
 
-        if (err)
-            return res.status(500).send(err);
+        posterSrc = './assets/images/screenshots/' + posterName;
+    } else {
+        posterSrc = './assets/images/screenshots/default-thumb.png';
 
-        res.send('File uploaded!');
-    });
-
-
-
+            res.send('File uploaded!');
+    }
 
 
-    var video = new Video(fileName, req.body.title, req.body.description, tags, './assets/videos/' + fileName, userId, './assets/images/screenshots/' + posterName);
+
+
+
+    var video = new Video(fileName, req.body.title, req.body.description, tags, './assets/videos/' + fileName, userId, posterSrc);
     videos.insert(video);
 });
 
