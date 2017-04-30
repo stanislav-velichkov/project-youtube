@@ -53,7 +53,7 @@ app.config(function ($routeProvider){
                 }
             }
         })
-        .when('/video?:video', {
+        .when('/video/:video', {
             templateUrl: "assets/htm/video.htm",
             controller: 'loadVideoController'
         })

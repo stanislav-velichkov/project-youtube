@@ -20,7 +20,7 @@ app.controller('currentVideoController', function ($scope, $http, $rootScope, $l
                 $rootScope.currentVideo = response.data[0];
                 console.log("Eto go obekta: ");
                 console.log($rootScope.currentVideo);
-                $location.path("/video").search(window.sessionStorage.getItem('currentVideo'));
+                $location.path("/video/" + window.sessionStorage.getItem('currentVideo'));
 
 
             }, function (response, status, headers, config) {

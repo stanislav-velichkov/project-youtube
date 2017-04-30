@@ -1,23 +1,32 @@
 var app = angular.module('mainApp');
 
 
-app.controller('loadVideoController', function ($scope, $http, $rootScope, $location) {
-    // if(!$rootScope.currentVideo) {
-    //     console.log('refresh')
-    // var indata = { '_id': window.sessionStorage.getItem('currentVideo') };
-    // console.log(indata);
-    // // console.log(indata);
-    // $http.post('/getVideo', indata)
-    //     .then(function (response, status, headers, config) {
+app.controller('loadVideoController', function ($scope, $http, $rootScope, $location, $routeParams) {
 
-    //         $rootScope.currentVideo = response.data[0];
-    //         console.log("Eto go obekta: ");
-    //         console.log($rootScope.currentVideo);
-    //         // $location.path("/video").search(window.sessionStorage.getItem('currentVideo'));
+    if (!$rootScope.currentVideo) {
+        var id = $routeParams.video;
+        console.log('ID ***************' + id);
+        console.log('refresh')
+        var indata = JSON.stringify({ '_id': id });
+        console.log(indata);
+        // console.log(indata);
+
+        $.ajax({
+            url: '/getVideo',
+            type: 'POST',
+            data: indata,
+            processData: false,
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            success: function (result) {
+                console.log(result);
+                $rootScope.currentVideo = result[0];
+            }
+        });
 
 
-    //     }, function (response, status, headers, config) {
-    //         alert('DataBase Error');
-    //     })
-    // }
+
+    }
+
 });
