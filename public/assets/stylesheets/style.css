@@ -28,23 +28,23 @@ li.dropdown > ul > li > a {
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-    box-shadow: 0 -2px 0px 0px #ca0012 inset;
+    box-shadow: 0 -2px 0px 0px #95142a inset;
 }
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
     color: white;
-    background-color: #b30014;
+    background-color: #95142a;
 }
 
 .navbar-nav .open .dropdown-menu :hover {
     color: white;
-    background-color: #ca0012;
+    background-color: #95142a;
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-    box-shadow: 0 -2px 0px 0px #ca0012 inset;
+    box-shadow: 0 -2px 0px 0px #95142a inset;
 }
 
 
@@ -52,11 +52,11 @@ li.dropdown > ul > li > a {
 
 
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: #ca0012;
+    background-color: #95142a;
 }
 
 .navbar-default .navbar-toggle:focus {
-    border-color: #ca0012;
+    border-color: #95142a;
     background-color: #e7e7e7
 }
 
@@ -138,9 +138,17 @@ footer ul a:hover {
     color: #777;
 }
 
+#navLogoImg {
+    margin-top: -8px;
+}
 
 #footerLogo {
-    padding-top: 10px;
+    padding-top: 3px;
+}
+
+#ftLogoImg {
+    width: 60px;
+    height: auto;
 }
 
 #footerText1, #footerText2 {
@@ -194,7 +202,7 @@ footer ul a:hover {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
         color: white;
-        background-color: #b30014;
+        background-color: #95142a;
     }
 
     #videoInfo input, #videoInfo textarea {
@@ -227,7 +235,7 @@ footer ul a:hover {
 
 }
 .login-register p {
-    color: #b30014;
+    color: #95142a;
     font-style: oblique;
 }
 
@@ -241,7 +249,7 @@ footer ul a:hover {
 }
 
 .login-register table th {
-    border-bottom: 3px solid #b30014;
+    border-bottom: 3px solid #95142a;
     text-align: center;
     color: #777;
     font-weight: bold;
@@ -257,12 +265,12 @@ footer ul a:hover {
 }
 
 #profile #videoFailure {
-    color: #b30014;
+    color: #95142a;
     font-style: oblique;
 }
 
 #profile #posterFailure {
-    color: #b30014;
+    color: #95142a;
     font-style: oblique;
 }
 
@@ -272,7 +280,7 @@ footer ul a:hover {
 }
 
 #profile h2 {
-    border-bottom: 2px solid #b30014;
+    border-bottom: 2px solid #95142a;
     color: #333;
 }
 
@@ -292,7 +300,7 @@ footer ul a:hover {
 /*Validation form*/
 
 input.ng-invalid.ng-dirty {
-    border: 1px solid #b30014;
+    border: 1px solid #95142a;
 }
 
 #uploadForm #uploadButton {
@@ -400,3 +408,23 @@ input.ng-invalid.ng-dirty {
     opacity: 1;
 }
 
+#newCommentArea {
+    resize: none;
+}
+#showComments .singleCommentDiv {
+    width: 100%;
+    border-bottom: 1px solid #e7e7e7;
+    padding: 10px 0px;
+}
+
+#showComments .singleCommentDiv:first-child {
+    border-top: 1px solid #e7e7e7;
+}
+
+#showComments .commentDate {
+    float: right;
+}
+
+#showComments {
+    width:100%;
+}

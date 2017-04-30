@@ -8,7 +8,7 @@ app.controller('addCommentController', function ($scope, $rootScope, $http, $loc
         var indata = {
             comment: $('#newCommentArea').val(),
             user: $rootScope.username,
-            date: Date.now(),
+            date: (new Date()).toGMTString(),
             videoId: $rootScope.currentVideo._id
         };
         $rootScope.currentVideo.comments.push(indata);
