@@ -22,10 +22,18 @@ app.controller('loadVideoController', function ($scope, $http, $rootScope, $loca
             if ($rootScope.currentVideo) {
                 $rootScope.currentVideo.tags = $rootScope.currentVideo.tags.join(' ');
                 var comments = $rootScope.currentVideo.comments;
+                if($rootScope.username) {
+                    $('#addCommentForm').css('display', 'inline-block');
+                } else {
+                    $('#addCommentForm').css('display', 'none');
+                }
                 $('#showComments').html('');
                 comments.forEach(function (comment) {
-                    $('#showComments').append("<div><span>" + comment.user + "</span><span>" + comment.date + "</span></div><div>" + comment.comment + "</div>");
-                });
+
+                    $('#showComments').append("<div class='singleCommentDiv'><div><span>" + comment.user + "</span><span class='commentDate'>" + comment.date + "</span></div></br><div>" + comment.comment + "</div></div>");
+                })
+
+                    
             }
 
             $scope.history = function ($event) {
