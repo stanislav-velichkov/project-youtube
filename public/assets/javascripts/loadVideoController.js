@@ -23,6 +23,12 @@ app.controller('loadVideoController', function ($scope, $http, $rootScope, $loca
             $rootScope.currentVideo = result[0];
             if ($rootScope.currentVideo) {
                 $rootScope.currentVideo.tags = $rootScope.currentVideo.tags.join(' ');
+
+                var comments = $rootScope.currentVideo.comments;
+                $('#showComments').html('');
+                comments.forEach(function (comment) {
+                    $('#showComments').append("<div><span>" + comment.user + "</span><span>" + comment.date + "</span></div><div>" + comment.comment + "</div>");
+                })
             }
         }
     });

@@ -381,7 +381,7 @@ input.ng-invalid.ng-dirty {
     padding-top: 3px;
 }
 
-#addCommentForm, #addCommentForm #newComment, #newCommentArea{
+#addCommentForm, #addCommentForm #newComment, #newCommentArea {
     width: 100%;
 }
 

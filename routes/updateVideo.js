@@ -8,7 +8,6 @@ router.post('/', function (req, res, next) {
     var db = req.db;
     var videos = db.get('videos');
 
-    console.log(req.body.likes);
     videos.findOneAndUpdate({_id: id}, {$set: {likes: req.body.likes}})
 });
 
