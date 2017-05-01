@@ -108,7 +108,6 @@ app.controller('searchController', function ($scope, $http, $location, $rootScop
                     $rootScope.searchVideos = response.data;
                     console.log($scope.searchVideos);
                 }
-                $('#find').val('');
                 $location.path('/search');
 
             }, function (response, status, headers, config) {

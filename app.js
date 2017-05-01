@@ -30,6 +30,7 @@ var updateUser = require('./routes/updateUser');
 var getHistory = require('./routes/getHistory');
 var getUploads = require('./routes/getUploads');
 var finder = require('./routes/finder');
+var category = require('./routes/category');
 
 var app = express();
 app.use(function (req, resp, next) {
@@ -64,6 +65,8 @@ app.use('/updateUser', updateUser);
 app.use('/getHistory', getHistory);
 app.use('/getUploads', getUploads);
 app.use('/finder', finder);
+app.use('/category', category);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

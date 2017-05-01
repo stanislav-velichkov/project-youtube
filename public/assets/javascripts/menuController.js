@@ -25,3 +25,19 @@ function menuToLoggedout() {
 
     });
 }
+
+function activate (button) {
+    var homeBtn = $('#homeBtn');
+    var popularBtn = $('#popularBtn');
+    var historyBtn = $('#historyBtn');
+    var bestOfBtn = $('#bestOfBtn');
+    var musicBtn = $('#musicBtn');
+    var sportsBtn = $('#sportsBtn');
+    var gamingBtn = $('#gamingBtn');
+    var newsBtn = $('#newsBtn');
+    var profBtn = $('#profBtn');
+    var loginBtn = $('#loginBtn');
+    var registerBtn = $('#registerBtn');
+    var logoutBtn = $('#logoutBtn');
+    var profileBtn = $('#profileBtn');
+}

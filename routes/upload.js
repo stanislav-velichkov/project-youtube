@@ -33,6 +33,10 @@ router.post('/', function (req, res) {
     var tags = req.body.tags;
     tags = tags.split(' ');
 
+    for(var index = 0; index < tags.length; index++) {
+        tags[index] = tags[index].toLowerCase();
+    }
+
     var fileName = req.body.title + userId + Date.now() + '.mp4';
 
     // Use the mv() method to place the file somewhere on your server
