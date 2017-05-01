@@ -1,6 +1,6 @@
 var app = angular.module('mainApp');
 
-app.directive('vid', function () {
+app.directive('vid', function() {
     return {
         restrict: 'E',
         scope: {
@@ -11,7 +11,7 @@ app.directive('vid', function () {
 });
 
 
-app.directive('video', function () {
+app.directive('video', function() {
     return {
         restrict: 'E',
         scope: {
@@ -21,7 +21,7 @@ app.directive('video', function () {
     }
 });
 
-app.directive('videoUpload', function () {
+app.directive('videoUpload', function() {
     return {
         restrict: 'E',
         scope: {
@@ -31,7 +31,7 @@ app.directive('videoUpload', function () {
     }
 });
 
-app.directive('findVid', function () {
+app.directive('findVid', function() {
     return {
         restrict: 'E',
         scope: {
@@ -42,10 +42,10 @@ app.directive('findVid', function () {
 });
 
 
-app.controller('videosController', function ($scope, $http, $rootScope, $location) {
+app.controller('videosController', function($scope, $http, $rootScope, $location) {
 
     $http.get('/allVideos')
-        .then(function (response, status, headers, config) {
+        .then(function(response, status, headers, config) {
             console.log('front end getting videos');
             if (response.data != '') {
                 $scope.videos = response.data;
@@ -53,18 +53,18 @@ app.controller('videosController', function ($scope, $http, $rootScope, $locatio
             } else {
                 alert('No videos found');
             }
-        }, function (response, status, headers, config) {
+        }, function(response, status, headers, config) {
             alert('DataBase Error');
         })
 
 });
 
-app.controller('historyController', function ($scope, $http, $rootScope, $location) {
+app.controller('historyController', function($scope, $http, $rootScope, $location) {
     if ($rootScope.username != undefined) {
         var indata = $rootScope.user.history;
 
         $http.post('/getHistory', indata)
-            .then(function (response, status, headers, config) {
+            .then(function(response, status, headers, config) {
                 console.log('front end getting videos');
                 if (response.data != '') {
                     $scope.historyVideos = response.data;
@@ -73,18 +73,18 @@ app.controller('historyController', function ($scope, $http, $rootScope, $locati
                 } else {
                     alert('No videos found');
                 }
-            }, function (response, status, headers, config) {
+            }, function(response, status, headers, config) {
                 alert('DataBase Error');
             })
     }
 });
 
-app.controller('uploadsController', function ($scope, $http, $rootScope, $location) {
+app.controller('uploadsController', function($scope, $http, $rootScope, $location) {
     if ($rootScope.username != undefined) {
         var indata = $rootScope.user._id;
 
-        $http.post('/getUploads', {id: indata})
-            .then(function (response, status, headers, config) {
+        $http.post('/getUploads', { id: indata })
+            .then(function(response, status, headers, config) {
                 console.log('getting uploads');
                 if (response.data != '') {
                     $scope.uploadVideos = response.data;
@@ -92,25 +92,30 @@ app.controller('uploadsController', function ($scope, $http, $rootScope, $locati
                     console.log($scope.uploadVideos);
                 }
 
-            }, function (response, status, headers, config) {
+            }, function(response, status, headers, config) {
                 alert('DataBase Error');
             })
     }
 });
 
-app.controller('searchController', function ($scope, $http, $location, $rootScope) {
-    $scope.search = function () {
+app.controller('searchController', function($scope, $http, $location, $rootScope) {
+    $scope.search = function() {
         console.log('Eto go searcha ' + $scope.q.search);
 
-        $http.post('/finder', {word: $scope.q.search})
-            .then(function (response, status, headers, config) {
+        $http.post('/finder', { word: $scope.q.search })
+            .then(function(response, status, headers, config) {
                 if (response.data != '') {
                     $rootScope.searchVideos = response.data;
                     console.log($scope.searchVideos);
                 }
                 $location.path('/search');
+                $('#homeBtn').removeClass('active');
+                $('#popularBtn').removeClass('active');
+                $('#historyBtn').removeClass('active');
+                $('#bestOfBtn').removeClass('active');
+                $('#profBtn').removeClass('active');
 
-            }, function (response, status, headers, config) {
+            }, function(response, status, headers, config) {
                 alert('Server Error');
             })
     }

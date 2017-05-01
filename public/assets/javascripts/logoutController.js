@@ -11,6 +11,12 @@ app.controller('logoutController', function ($scope, $http, $rootScope, $locatio
                 $rootScope.username = undefined;
                 console.log('destroyed session');
                 $location.path('/');
+                $('#homeBtn').addClass('active');
+
+                $('#popularBtn').removeClass('active');
+                $('#historyBtn').removeClass('active');
+                $('#bestOfBtn').removeClass('active');
+                $('#profBtn').removeClass('active');
             }, function (response, status, headers, config) {
                 // alert('Server Error');
             })

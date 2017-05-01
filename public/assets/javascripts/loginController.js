@@ -5,7 +5,7 @@ app.controller('loginController', function ($scope, $http, $rootScope, $location
     $scope.login = function () {
 
 
-        var indata = {'username': $scope.user.username, 'password': $scope.user.password};
+        var indata = { 'username': $scope.user.username, 'password': $scope.user.password };
         $http.post('/login', indata)
             .then(function (response, status, headers, config) {
                 console.log("Poluchix suobshtenieto");
@@ -22,6 +22,12 @@ app.controller('loginController', function ($scope, $http, $rootScope, $location
 
                     console.log($rootScope.user);
                     $location.path("/");
+                    $('#homeBtn').addClass('active');
+
+                    $('#popularBtn').removeClass('active');
+                    $('#historyBtn').removeClass('active');
+                    $('#bestOfBtn').removeClass('active');
+                    $('#profBtn').removeClass('active');
                     menuToLoggedIn();
                 } else {
                     $('#loginErrorMsg').html('Username or Password invalid!');

@@ -283,10 +283,13 @@ footer ul a:hover {
     font-style: oblique;
 }
 
-#profile h2 {
+#profile h2, #history h2, #search h2, #home h2 {
     border-bottom: 2px solid #95142a;
     color: #333;
+    padding-bottom: 20px;
+    margin-top: 10px;
 }
+
 
 #profile h3 {
     background-color: #f8f8f8;
@@ -436,8 +439,9 @@ input.ng-invalid.ng-dirty {
 }
 
 .thumbnailDesc {
+    padding: 5px;
     background-color: #f8f8f8;
-    height: 50px;
+    height: 60px;
     color: #777;
 }
 

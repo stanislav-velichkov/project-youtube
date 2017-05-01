@@ -39,14 +39,14 @@
                 <ul class="nav navbar-nav">
                     <li id="homeBtn" class="active"><a class="closeNavbar" href="#"><i class="fa fa-home" aria-hidden="true"></i>
                         Home</a></li>
-                    <li><a href="#" class="closeNavbar"><i class="fa fa-fire" aria-hidden="true"></i> Trending</a></li>
-                    <li id="historyButton" ><a href="#!/history" class="closeNavbar"><i class="fa fa-history" aria-hidden="true"></i>
+                    <li id="popularBtn"><a href="#" class="closeNavbar"><i class="fa fa-fire" aria-hidden="true"></i> Trending</a></li>
+                    <li id="historyBtn" ><a href="#!/history" class="closeNavbar"><i class="fa fa-history" aria-hidden="true"></i>
                         History</a></li>
                     <li id="bestOfBtn" class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">Best of YouTube<b
                                 class="caret"></b></a>
                         <ul class="dropdown-menu" ng-controller="categoriesController">
-                            <li id="dropdownButton" ><a class="closeNavbar" ng-click="getCat($event)" href=""><i class="fa fa-music" aria-hidden="true"></i> Music</a>
+                            <li id="musicBtn" ><a class="closeNavbar" ng-click="getCat($event)" href=""><i class="fa fa-music" aria-hidden="true"></i> Music</a>
                             </li>
                             <li id="sportsBtn" ><a class="closeNavbar" ng-click="getCat($event)" href=""><i class="fa fa-futbol-o" aria-hidden="true"></i> Sports</a>
                             </li>
@@ -61,7 +61,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li class="dropdown">
+                    <li id="profBtn" class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i>
                             <span>{{username}}</span> <b class="caret"></b></a>
                         <ul class="dropdown-menu" ng-controller="logoutController">

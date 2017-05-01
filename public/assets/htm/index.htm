@@ -1,11 +1,14 @@
-<div ng-controller="videosController">
+<div id="home">
+    <h2>Home</h2>
+    <div ng-controller="videosController">
 
-    <div ng-repeat="vid in videos">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 thumbnails">
-            <div style="text-align: justify">
-                <vid data="vid"></vid>
+        <div ng-repeat="vid in videos">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 thumbnails">
+                <div style="text-align: justify">
+                    <vid data="vid"></vid>
+                </div>
             </div>
         </div>
-    </div>
 
+    </div>
 </div>

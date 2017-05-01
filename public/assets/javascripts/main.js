@@ -8,7 +8,7 @@ var app = angular.module('mainApp', [
     "com.2fdevs.videogular.plugins.poster"
 ]);
 
-app.config(function ($routeProvider){
+app.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: "assets/htm/index.htm",
@@ -19,6 +19,12 @@ app.config(function ($routeProvider){
                 'check': function ($rootScope, $location) {
                     if ($rootScope.username != undefined) {
                         $location.path('/');
+                        $('#homeBtn').addClass('active');
+
+                        $('#popularBtn').removeClass('active');
+                        $('#historyBtn').removeClass('active');
+                        $('#bestOfBtn').removeClass('active');
+                        $('#profBtn').removeClass('active');
                     }
                 }
             }
@@ -29,6 +35,12 @@ app.config(function ($routeProvider){
                 'check': function ($rootScope, $location) {
                     if ($rootScope.username != undefined) {
                         $location.path('/');
+                        $('#homeBtn').addClass('active');
+
+                        $('#popularBtn').removeClass('active');
+                        $('#historyBtn').removeClass('active');
+                        $('#bestOfBtn').removeClass('active');
+                        $('#profBtn').removeClass('active');
                     }
                 }
             }
@@ -39,6 +51,12 @@ app.config(function ($routeProvider){
                 'check': function ($rootScope, $location) {
                     if ($rootScope.username == undefined) {
                         $location.path('/login');
+                        $('#profBtn').addClass('active');
+
+                        $('#popularBtn').removeClass('active');
+                        $('#historyBtn').removeClass('active');
+                        $('#bestOfBtn').removeClass('active');
+                        $('#homeBtn').removeClass('active');
                     }
                 }
             }
@@ -49,6 +67,12 @@ app.config(function ($routeProvider){
                 'check': function ($rootScope, $location) {
                     if ($rootScope.username == undefined) {
                         $location.path('/login');
+                        $('#profBtn').addClass('active');
+
+                        $('#popularBtn').removeClass('active');
+                        $('#historyBtn').removeClass('active');
+                        $('#bestOfBtn').removeClass('active');
+                        $('#homeBtn').removeClass('active');
                     }
                 }
             }
