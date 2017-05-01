@@ -431,4 +431,9 @@ input.ng-invalid.ng-dirty {
 
 #showComments {
     width:100%;
+    padding-top: 30px;
+}
+
+.commentHead {
+    background-color: #f8f8f8;
 }

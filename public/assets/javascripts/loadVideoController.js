@@ -30,7 +30,7 @@ app.controller('loadVideoController', function ($scope, $http, $rootScope, $loca
                 $('#showComments').html('');
                 comments.forEach(function (comment) {
 
-                    $('#showComments').append("<div class='singleCommentDiv'><div><span>" + comment.user + "</span><span class='commentDate'>" + comment.date + "</span></div></br><div>" + comment.comment + "</div></div>");
+                    $('#showComments').prepend("<div class='singleCommentDiv'><div class='commentHead'><span>" + comment.user + "</span><span class='commentDate'>" + comment.date + "</span></div></br><div>" + comment.comment + "</div></div>");
                 })
 
                     
