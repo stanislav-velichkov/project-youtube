@@ -286,7 +286,7 @@ footer ul a:hover {
 #profile h2, #history h2, #search h2, #home h2 {
     border-bottom: 2px solid #95142a;
     color: #333;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     margin-top: 10px;
 }
 
