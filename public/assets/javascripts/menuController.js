@@ -28,7 +28,6 @@ function menuToLoggedout() {
 
 
 var homeBtn = $('#homeBtn');
-var popularBtn = $('#popularBtn');
 var historyBtn = $('#historyBtn');
 var bestOfBtn = $('#bestOfBtn');
 var musicBtn = $('#musicBtn');
@@ -49,14 +48,6 @@ homeBtn.on('click', function(){
     $('#profBtn').removeClass('active');
 });
 
-popularBtn.on('click', function(){
-    $('#popularBtn').addClass('active');
-
-    $('#homeBtn').removeClass('active');
-    $('#historyBtn').removeClass('active');
-    $('#bestOfBtn').removeClass('active');
-    $('#profBtn').removeClass('active');
-});
 
 historyBtn.on('click', function(){
     $('#historyBtn').addClass('active');

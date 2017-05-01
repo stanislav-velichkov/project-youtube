@@ -12,7 +12,6 @@ app.controller('logoutController', function ($scope, $http, $rootScope, $locatio
                 $location.path('/');
                 $('#homeBtn').addClass('active');
 
-                $('#popularBtn').removeClass('active');
                 $('#historyBtn').removeClass('active');
                 $('#bestOfBtn').removeClass('active');
                 $('#profBtn').removeClass('active');
