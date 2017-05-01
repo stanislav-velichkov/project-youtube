@@ -446,6 +446,11 @@ input.ng-invalid.ng-dirty {
     color: #777;
 }
 
+.thumbTitle {
+    overflow: hidden;
+    height: 50px;
+}
+
 
 
 .thumbnailVid {
