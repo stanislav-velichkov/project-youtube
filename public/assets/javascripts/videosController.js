@@ -31,7 +31,7 @@ app.directive('videoUpload', function () {
     }
 });
 
-app.directive('searchVid', function () {
+app.directive('findVid', function () {
     return {
         restrict: 'E',
         scope: {
@@ -98,19 +98,18 @@ app.controller('uploadsController', function ($scope, $http, $rootScope, $locati
     }
 });
 
-app.controller('searchController', function ($scope, $http, $location) {
+app.controller('searchController', function ($scope, $http, $location, $rootScope) {
     $scope.search = function () {
         console.log('Eto go searcha ' + $scope.q.search);
 
         $http.post('/finder', {word: $scope.q.search})
             .then(function (response, status, headers, config) {
                 if (response.data != '') {
-                    $scope.searchVideos = response.data;
+                    $rootScope.searchVideos = response.data;
                     console.log($scope.searchVideos);
-                    $location.path('/search');
                 }
                 $('#find').val('');
-
+                $location.path('/search');
 
             }, function (response, status, headers, config) {
                 alert('Server Error');

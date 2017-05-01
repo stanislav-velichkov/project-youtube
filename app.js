@@ -27,10 +27,9 @@ var getVideo = require('./routes/getVideo');
 var updateVideo = require('./routes/updateVideo');
 var comment = require('./routes/comment');
 var updateUser = require('./routes/updateUser');
-var finder = require('./routes/finder');
 var getHistory = require('./routes/getHistory');
 var getUploads = require('./routes/getUploads');
-
+var finder = require('./routes/finder');
 
 var app = express();
 app.use(function (req, resp, next) {
@@ -62,10 +61,9 @@ app.use('/getVideo', getVideo);
 app.use('/updateVideo', updateVideo);
 app.use('/comment', comment);
 app.use('/updateUser', updateUser);
-app.use('/finder', finder);
 app.use('/getHistory', getHistory);
 app.use('/getUploads', getUploads);
-
+app.use('/finder', finder);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
