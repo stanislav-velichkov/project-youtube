@@ -1,4 +1,14 @@
 <div id="history">
     <h2>History</h2>
+    <div ng-controller="historyController">
 
+        <div ng-repeat="video in historyVideos">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 thumbnails">
+                <div style="text-align: justify">
+                    <vid data="video"></vid>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
