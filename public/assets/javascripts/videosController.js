@@ -21,6 +21,16 @@ app.directive('video', function () {
     }
 });
 
+app.directive('videoUpload', function () {
+    return {
+        restrict: 'E',
+        scope: {
+            data: '='
+        },
+        templateUrl: 'assets/htm/uploadsVid.htm'
+    }
+});
+
 
 app.controller('videosController', function ($scope, $http, $rootScope, $location) {
         
@@ -53,6 +63,25 @@ app.controller('historyController', function ($scope, $http, $rootScope, $locati
                 } else {
                     alert('No videos found');
                 }
+            }, function (response, status, headers, config) {
+                alert('DataBase Error');
+            })
+    }
+});
+
+app.controller('uploadsController', function ($scope, $http, $rootScope, $location) {
+    if ($rootScope.username != undefined) {
+        var indata = $rootScope.user._id;
+
+        $http.post('/getUploads', {id: indata})
+            .then(function (response, status, headers, config) {
+                console.log('getting uploads');
+                if (response.data != '') {
+                    $scope.uploadVideos = response.data;
+                    console.log('eto gi uploads');
+                    console.log($scope.uploadVideos);
+                }
+                
             }, function (response, status, headers, config) {
                 alert('DataBase Error');
             })

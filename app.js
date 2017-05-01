@@ -29,6 +29,7 @@ var comment = require('./routes/comment');
 var updateUser = require('./routes/updateUser');
 var finder = require('./routes/finder');
 var getHistory = require('./routes/getHistory');
+var getUploads = require('./routes/getUploads');
 
 
 var app = express();
@@ -63,6 +64,7 @@ app.use('/comment', comment);
 app.use('/updateUser', updateUser);
 app.use('/finder', finder);
 app.use('/getHistory', getHistory);
+app.use('/getUploads', getUploads);
 
 
 // catch 404 and forward to error handler
