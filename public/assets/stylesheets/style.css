@@ -357,7 +357,7 @@ input.ng-invalid.ng-dirty {
 
 #related {
     border-left: 1px solid #e7e7e7;
-    margin: 20px 0px;
+    margin: 13px 0px;
 }
 
 #videoPlayer{
@@ -382,9 +382,6 @@ input.ng-invalid.ng-dirty {
     overflow: hidden;
 }
 
-.thumbnails {
-    padding-top: 3px;
-}
 
 #addCommentForm, #addCommentForm #newComment, #newCommentArea {
     width: 100%;
