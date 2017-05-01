@@ -291,6 +291,7 @@ footer ul a:hover {
 #profile h3 {
     background-color: #f8f8f8;
     color: #333;
+    padding: 10px;
 }
 
 #profile p {
@@ -336,17 +337,6 @@ input.ng-invalid.ng-dirty {
 
 #profileButton, #logoutButton {
     display:none;
-}
-
-.snapshot_generator {
-  display: block;
-  height: 1px;
-  left: 0;
-  object-fit: contain;
-  position: fixed;
-  top: 0;
-  width: 1px;
-  z-index: -1;
 }
 
 #comments, #videoDescription {
