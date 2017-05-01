@@ -9,7 +9,6 @@ app.controller('logoutController', function ($scope, $http, $rootScope, $locatio
                 menuToLoggedout();
                 $rootScope.user = new User();
                 $rootScope.username = undefined;
-                console.log('destroyed session');
                 $location.path('/');
                 $('#homeBtn').addClass('active');
 

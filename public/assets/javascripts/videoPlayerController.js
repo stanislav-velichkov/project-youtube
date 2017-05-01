@@ -1,7 +1,6 @@
 var app = angular.module('mainApp');
 
 app.controller('HomeCtrl', function ($sce, $rootScope, $scope, $http) {
-    console.log($rootScope.currentVideo);
     this.config = {
         sources: [
             {

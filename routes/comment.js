@@ -8,7 +8,6 @@ router.post('/', function (req, res, next) {
     videos.findOneAndUpdate({_id: req.body._id}, {$set: {comments: req.body.comments}})
         .then(function () {
             res.json('COMMENT ADDED');
-            //req.session.userId
         }).catch(function (err) {
         res.json(500, err);
     });

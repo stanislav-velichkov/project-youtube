@@ -3,10 +3,8 @@ var passwordHash = require('password-hash');
 var router = express.Router();
 
 router.post('/', function (req, res, next) {
-    console.log("Make post login request");
     var username = req.body.username;
     var password = req.body.password;
-    console.log(username + " e imeto a parolata e " + password);
     var db = req.db;
     var users = db.get('users');
     users.find({ username: username })
@@ -17,7 +15,6 @@ router.post('/', function (req, res, next) {
 
                 if (passwordHash.verify(password, hashedPassword)) {
                     var user = data[0];
-                    console.log(user);
                     res.json(user);
                 } else {
                     res.json('');

@@ -4,8 +4,6 @@ var app = angular.module('mainApp');
 app.controller('loadVideoController', function ($scope, $http, $rootScope, $location, $routeParams) {
 
     var id = $routeParams.video;
-    console.log('ID ***************' + id);
-    console.log('refresh');
     var indata = JSON.stringify({'_id': id});
 
     $.ajax({

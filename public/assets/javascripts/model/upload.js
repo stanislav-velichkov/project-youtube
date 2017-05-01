@@ -49,7 +49,6 @@ $('#uploadForm').submit(
                 contentType: false,
                 async: true,
                 success: function (result) {
-                    console.log(result);
                     $('#uploading').css('display', 'none');
                     $("#success").html('File Uploaded');
                 }

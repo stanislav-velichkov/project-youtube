@@ -2,11 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 router.post('/', function (req, res) {
-    console.log('Searching: ');
     var db = req.db;
     var videos = db.get('videos');
     var searchingArray = req.body.word.split(' ');
-
 
     videos.find({})
         .then(function (data) {

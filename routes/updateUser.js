@@ -3,8 +3,6 @@ var router = express.Router();
 
 router.post('/', function (req, res, next) {
     var id = req.body._id;
-    console.log('updating user');
-    console.log(req.body._id);
     var db = req.db;
     var users = db.get('users');
 

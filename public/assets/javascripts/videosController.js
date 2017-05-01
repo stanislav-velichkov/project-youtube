@@ -46,10 +46,8 @@ app.controller('videosController', function($scope, $http, $rootScope, $location
 
     $http.get('/allVideos')
         .then(function(response, status, headers, config) {
-            console.log('front end getting videos');
             if (response.data != '') {
                 $scope.videos = response.data;
-                console.log($scope.videos);
             } else {
                 alert('No videos found');
             }
@@ -65,11 +63,8 @@ app.controller('historyController', function($scope, $http, $rootScope, $locatio
 
         $http.post('/getHistory', indata)
             .then(function(response, status, headers, config) {
-                console.log('front end getting videos');
                 if (response.data != '') {
                     $scope.historyVideos = response.data;
-                    console.log('eto go history');
-                    console.log($scope.historyVideos);
                 } else {
                     alert('No videos found');
                 }
@@ -85,11 +80,8 @@ app.controller('uploadsController', function($scope, $http, $rootScope, $locatio
 
         $http.post('/getUploads', { id: indata })
             .then(function(response, status, headers, config) {
-                console.log('getting uploads');
                 if (response.data != '') {
                     $scope.uploadVideos = response.data;
-                    console.log('eto gi uploads');
-                    console.log($scope.uploadVideos);
                 }
 
             }, function(response, status, headers, config) {
@@ -100,13 +92,10 @@ app.controller('uploadsController', function($scope, $http, $rootScope, $locatio
 
 app.controller('searchController', function($scope, $http, $location, $rootScope) {
     $scope.search = function() {
-        console.log('Eto go searcha ' + $scope.q.search);
-
         $http.post('/finder', { word: $scope.q.search })
             .then(function(response, status, headers, config) {
                 if (response.data != '') {
                     $rootScope.searchVideos = response.data;
-                    console.log($scope.searchVideos);
                 }
                 $location.path('/search');
                 $('#homeBtn').removeClass('active');
