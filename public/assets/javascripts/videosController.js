@@ -1,6 +1,6 @@
 var app = angular.module('mainApp');
 
-app.directive('vid', function() {
+app.directive('vid', function () {
     return {
         restrict: 'E',
         scope: {
@@ -31,23 +31,33 @@ app.directive('videoUpload', function () {
     }
 });
 
+app.directive('searchVid', function () {
+    return {
+        restrict: 'E',
+        scope: {
+            data: '='
+        },
+        templateUrl: 'assets/htm/searchVid.htm'
+    }
+});
+
 
 app.controller('videosController', function ($scope, $http, $rootScope, $location) {
-        
-        $http.get('/allVideos')
-            .then(function (response, status, headers, config) {
-                console.log('front end getting videos');
-                if (response.data != '') {
-                    $scope.videos = response.data;
-                    console.log($scope.videos);
-                } else {
-                    alert('No videos found');
-                }
-            }, function (response, status, headers, config) {
-                alert('DataBase Error');
-            })
 
-    });
+    $http.get('/allVideos')
+        .then(function (response, status, headers, config) {
+            console.log('front end getting videos');
+            if (response.data != '') {
+                $scope.videos = response.data;
+                console.log($scope.videos);
+            } else {
+                alert('No videos found');
+            }
+        }, function (response, status, headers, config) {
+            alert('DataBase Error');
+        })
+
+});
 
 app.controller('historyController', function ($scope, $http, $rootScope, $location) {
     if ($rootScope.username != undefined) {
@@ -81,9 +91,29 @@ app.controller('uploadsController', function ($scope, $http, $rootScope, $locati
                     console.log('eto gi uploads');
                     console.log($scope.uploadVideos);
                 }
-                
+
             }, function (response, status, headers, config) {
                 alert('DataBase Error');
+            })
+    }
+});
+
+app.controller('searchController', function ($scope, $http, $location) {
+    $scope.search = function () {
+        console.log('Eto go searcha ' + $scope.q.search);
+
+        $http.post('/finder', {word: $scope.q.search})
+            .then(function (response, status, headers, config) {
+                if (response.data != '') {
+                    $scope.searchVideos = response.data;
+                    console.log($scope.searchVideos);
+                    $location.path('/search');
+                }
+                $('#find').val('');
+
+
+            }, function (response, status, headers, config) {
+                alert('Server Error');
             })
     }
 });

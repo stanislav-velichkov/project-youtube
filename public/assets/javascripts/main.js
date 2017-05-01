@@ -57,4 +57,8 @@ app.config(function ($routeProvider){
             templateUrl: "assets/htm/video.htm",
             controller: 'loadVideoController'
         })
+        .when('/search', {
+            templateUrl: "assets/htm/search.htm",
+            controller: 'searchController'
+        })
 });
