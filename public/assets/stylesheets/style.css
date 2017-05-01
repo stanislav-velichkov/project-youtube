@@ -439,9 +439,10 @@ input.ng-invalid.ng-dirty {
 }
 
 .thumbnailDesc {
+    overflow: hidden;
     padding: 5px;
     background-color: #f8f8f8;
-    height: 60px;
+    height: 55px;
     color: #777;
 }
 
