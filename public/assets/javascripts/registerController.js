@@ -5,9 +5,9 @@ app.controller('registerController', function ($scope, $http, $location) {
 
     $scope.register = function() {
 
-        var Indata = new User($scope.user.username, $scope.user.email, $scope.user.password);
-        console.log(Indata);
-        $http.post('/register', Indata)
+        var indata = new User($scope.user.username, $scope.user.email, $scope.user.password);
+        console.log(indata);
+        $http.post('/register', indata)
             .then(function(response, status, headers, config) {
                 console.log("Poluchix suobshtenieto");
                 console.log("Nodemon raboti");

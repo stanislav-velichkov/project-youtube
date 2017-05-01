@@ -78,10 +78,11 @@
                     </li>
                 </ul>
 
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-4">
-                    <form class="navbar-form" role="search">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-4" ng-controller="searchController">
+                    <form class="navbar-form" role="search" ng-submit="search()">
                         <div class="input-group">
-                            <input type="text" size="100%" class="form-control" placeholder="Search" name="q">
+                            <input id="find" type="text" size="100%" class="form-control" placeholder="Search" name="q"
+                                   ng-model="q.search">
                             <div class="input-group-btn">
                                 <button class="btn btn-default closeNavbar" type="submit"><i class="fa fa-search"
                                                                                              aria-hidden="true"></i>
@@ -160,6 +161,7 @@
 <script src="assets/javascripts/videoPlayerController.js"></script>
 <script src="assets/javascripts/loadVideoController.js"></script>
 <script src="assets/javascripts/addCommentController.js"></script>
+<script src="assets/javascripts/searchController.js"></script>
 </body>
 
 </html>
