@@ -32,5 +32,5 @@ app.controller('HomeCtrl', function ($sce, $rootScope, $scope, $http) {
                     // alert('Session Error');
                 });
         }
-    }
+    };
 });
