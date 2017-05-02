@@ -98,8 +98,8 @@ app.controller('searchController', function($scope, $http, $location, $rootScope
                     $rootScope.searchVideos = response.data;
                 }
                 $location.path('/search');
+                
                 $('#homeBtn').removeClass('active');
-                $('#popularBtn').removeClass('active');
                 $('#historyBtn').removeClass('active');
                 $('#bestOfBtn').removeClass('active');
                 $('#profBtn').removeClass('active');

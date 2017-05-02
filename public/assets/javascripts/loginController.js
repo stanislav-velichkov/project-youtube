@@ -15,7 +15,6 @@ app.controller('loginController', function ($scope, $http, $rootScope, $location
                     $location.path("/");
                     $('#homeBtn').addClass('active');
 
-                    $('#popularBtn').removeClass('active');
                     $('#historyBtn').removeClass('active');
                     $('#bestOfBtn').removeClass('active');
                     $('#profBtn').removeClass('active');

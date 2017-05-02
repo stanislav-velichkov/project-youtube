@@ -286,7 +286,7 @@ footer ul a:hover {
 #profile h2, #history h2, #search h2, #home h2 {
     border-bottom: 2px solid #95142a;
     color: #333;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     margin-top: 10px;
 }
 
@@ -357,7 +357,7 @@ input.ng-invalid.ng-dirty {
 
 #related {
     border-left: 1px solid #e7e7e7;
-    margin: 20px 0px;
+    margin: 13px 0px;
 }
 
 #videoPlayer{
@@ -382,9 +382,6 @@ input.ng-invalid.ng-dirty {
     overflow: hidden;
 }
 
-.thumbnails {
-    padding-top: 3px;
-}
 
 #addCommentForm, #addCommentForm #newComment, #newCommentArea {
     width: 100%;

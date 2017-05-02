@@ -15,7 +15,6 @@ app.controller('registerController', function ($scope, $http, $location) {
                     $location.path("/login");
                     $('#profBtn').addClass('active');
 
-                    $('#popularBtn').removeClass('active');
                     $('#historyBtn').removeClass('active');
                     $('#bestOfBtn').removeClass('active');
                     $('#homeBtn').removeClass('active');
