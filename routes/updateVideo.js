@@ -6,8 +6,19 @@ router.post('/', function (req, res, next) {
     var db = req.db;
     var videos = db.get('videos');
 
-    videos.findOneAndUpdate({_id: id}, {$set: {likes: req.body.likes}});
-    videos.findOneAndUpdate({_id: id}, {$set: {views: req.body.views}});
+    videos.findOneAndUpdate({ _id: id }, { $set: { likes: req.body.likes } })
+        .then(function () {
+            res.json('UPDATED VIDEO LIKES');
+        }).catch(function (err) {
+            res.json('likes error');
+        });
+    // videos.findOneAndUpdate({ _id: id }, { $set: { views: req.body.views } })
+    //     .then(function () {
+    //         res.json(data);
+    //         console.log(data);
+    //     }).catch(function (err) {
+    //         res.json(500, err);
+    //     });
 });
 
 module.exports = router;
