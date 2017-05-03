@@ -3,7 +3,7 @@ var app = angular.module('mainApp');
 
 app.controller('loadVideoController', function ($scope, $http, $rootScope, $location, $routeParams) {
     $scope.loadVid = function () {
-        console.log('eto go batko');
+
         var id = $routeParams.video;
         var indata = JSON.stringify({'_id': id});
 

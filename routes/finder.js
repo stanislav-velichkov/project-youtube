@@ -6,7 +6,15 @@ router.post('/', function (req, res) {
     var videos = db.get('videos');
     var searchingArray = req.body.word.split(' ');
 
-    videos.find({})
+    videos.find({
+        // title: {
+        //     $text: {
+        //         $search: { $regex: req.body.word},
+        //         $caseSensitive: false,
+        //         $diacriticSensitive: true
+        //     }
+        // }
+    })
         .then(function (data) {
             for (var index = 0; index < searchingArray.length; index++) {
                 var wordReg = new RegExp(searchingArray[index], 'gi');
@@ -19,7 +27,7 @@ router.post('/', function (req, res) {
                     }
                 });
             }
-
+            console.log(data);
             res.json(result);
         }).catch(function (err) {
         res.json(500, err);

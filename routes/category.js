@@ -6,19 +6,10 @@ router.post('/', function (req, res) {
     var videos = db.get('videos');
     var category = req.body.cat;
 
-    videos.find({})
+    videos.find({tags: {$regex: category}})
         .then(function (data) {
-            var result = [];
-            data.forEach(function (obj) {
-                if (obj.tags.indexOf(category) != -1) {
-                    if (result.indexOf(obj) == -1) {
-                        result.push(obj);
-                    }
-                }
-            });
-
-            if (result.length > 0) {
-                res.json(result);
+            if (data.length > 0) {
+                res.json(data);
             } else {
                 res.json('');
             }
