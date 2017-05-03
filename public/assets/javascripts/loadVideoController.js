@@ -34,15 +34,14 @@ app.controller('loadVideoController', function ($scope, $http, $rootScope, $loca
 
 
                 }
-
-                $scope.history = function ($event) {
-                    var id = $event.currentTarget.getAttribute('id');
-                    if ($rootScope.username != undefined && $rootScope.user.history.indexOf(id) == -1) {
-                        $rootScope.user.history.push(id);
-                        $http.post('/updateUser', $rootScope.user);
-                    }
-                };
             }
         });
-    }
+    };
+    $scope.history = function ($event) {
+        var id = $event.currentTarget.getAttribute('id');
+        if ($rootScope.username != undefined && $rootScope.user.history.indexOf(id) == -1) {
+            $rootScope.user.history.push(id);
+            $http.post('/updateUser', $rootScope.user);
+        }
+    };
 });
