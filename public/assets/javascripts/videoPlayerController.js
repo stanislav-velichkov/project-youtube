@@ -13,24 +13,45 @@ app.controller('HomeCtrl', function ($sce, $rootScope, $scope, $http) {
     };
     $scope.like = function () {
 
-        if ($rootScope.username != undefined && $rootScope.user.likes.indexOf($rootScope.currentVideo._id) == -1) {
+        if ($rootScope.username != undefined) {
+            if ($rootScope.user.likes.indexOf($rootScope.currentVideo._id) == -1) {
 
-            $rootScope.currentVideo.likes += 1;
-            $rootScope.user.likes.push($rootScope.currentVideo._id);
+                $rootScope.currentVideo.likes += 1;
+                $rootScope.user.likes.push($rootScope.currentVideo._id);
 
-            $http.post('/updateUser', $rootScope.user)
-                .then(function (response, status, headers, config) {
+                $http.post('/updateUser', $rootScope.user)
+                    .then(function (response, status, headers, config) {
 
-                }, function (response, status, headers, config) {
-                    // alert('Session Error');
-                });
+                    }, function (response, status, headers, config) {
+                        // alert('Session Error');
+                    });
 
-            $http.post('/updateVideo', $rootScope.currentVideo)
-                .then(function (response, status, headers, config) {
+                $http.post('/updateVideo', $rootScope.currentVideo)
+                    .then(function (response, status, headers, config) {
 
-                }, function (response, status, headers, config) {
-                    // alert('Session Error');
-                });
+                    }, function (response, status, headers, config) {
+                        // alert('Session Error');
+                    });
+            } else {
+                $rootScope.currentVideo.likes -= 1;
+                var videoIndex = $rootScope.user.likes.indexOf($rootScope.currentVideo._id);
+
+                $rootScope.user.likes.splice(videoIndex, 1);
+
+                $http.post('/updateUser', $rootScope.user)
+                    .then(function (response, status, headers, config) {
+
+                    }, function (response, status, headers, config) {
+                        // alert('Session Error');
+                    });
+
+                $http.post('/updateVideo', $rootScope.currentVideo)
+                    .then(function (response, status, headers, config) {
+
+                    }, function (response, status, headers, config) {
+                        // alert('Session Error');
+                    });
+            }
         }
     };
 });
