@@ -464,3 +464,9 @@ input.ng-invalid.ng-dirty {
         box-shadow: 10px 10px 5px #e7e7e7;
     }
 }
+
+#commentsErr {
+    display: none;
+    font-style: oblique;
+    color: #95142a;
+}

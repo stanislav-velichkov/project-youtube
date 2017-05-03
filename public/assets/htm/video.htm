@@ -47,10 +47,12 @@
                     <div class="row" id="comments" ng-controller="addCommentController">
                         <h4>Comments ({{currentVideo.comments.length}})</h4>
                         <form id="addCommentForm" ng-submit="addComment()">
-                            <textarea name="addComment" id="newCommentArea" placeholder="Add your comment here"
-                                      rows="3"></textarea>
-                            <input type="submit" id="addCommentButton" value="Add comment"/>
+                            <textarea name="addComment" id="newCommentArea" placeholder="Add your comment here" rows="3"></textarea>
+                            <input type="submit" id="addCommentButton" value="Add comment" />
                         </form>
+                        <div id="commentsErr">
+                            You can't post an empty comment!
+                        </div>
                         <div id="showComments">
                         </div>
                     </div>
