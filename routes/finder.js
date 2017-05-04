@@ -4,6 +4,8 @@ var router = express.Router();
 router.post('/', function (req, res) {
     var db = req.db;
     var videos = db.get('videos');
+    var word = req.body.word;
+
     videos.find({title: {$regex: req.body.word, $options: 'gi'}})
         .then(function (data) {
             res.json(data);
