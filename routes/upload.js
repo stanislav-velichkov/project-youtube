@@ -40,7 +40,7 @@ router.post('/', function (req, res) {
     var fileName = req.body.title + userId + Date.now() + '.mp4';
 
     // Use the mv() method to place the file somewhere on your server
-    uploadVideo.mv('./public/assets/videos/' + fileName, function (err) {
+    uploadVideo.mv('public/assets/videos/' + fileName, function (err) {
 
         // if (err)
         //     return res.status(500).send(err);
@@ -54,10 +54,13 @@ router.post('/', function (req, res) {
         console.log('uploadPoster found');
         var posterName = req.body.title + userId + Date.now() + '.png';
 
-        uploadPoster.mv('./public/assets/images/screenshots/' + posterName, function (err) {
+        uploadPoster.mv('public/assets/images/screenshots/' + posterName, function (err) {
 
-            resizeImg(fs.readFileSync('./public/assets/images/screenshots/' + posterName), { width: 600, height: 360 }).then(buf => {
-                fs.writeFileSync('./public/assets/images/screenshots/' + posterName, buf);
+            resizeImg(fs.readFileSync('public/assets/images/screenshots/' + posterName), {
+                width: 600,
+                height: 360
+            }).then(buf => {
+                fs.writeFileSync('public/assets/images/screenshots/' + posterName, buf);
             });
 
             if (err)
